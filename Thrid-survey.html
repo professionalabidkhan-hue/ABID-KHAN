@@ -1,0 +1,323 @@
+
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">  
+  <title>MBTI Form (Urdu)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 20px;
+      direction: rtl;
+      color: #333;
+          font-family: 'Noto Nastaliq Urdu', sans-serif;
+    direction: rtl;  /* Right to Left text direction for Urdu */
+    text-align: right;  /* Align text to the right */
+    }
+
+
+
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffffcc;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h3 {
+      color: #4a148c;
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .grid-table, .grid-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .cell {
+      background: #f3e5f5;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .grid-head .cell {
+      background: #ce93d8;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 8px 0;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus {
+      border-color: #8e24aa;
+      box-shadow: 0 0 8px rgba(142,36,170,0.3);
+      outline: none;
+    }
+
+    button {
+      background: #8e24aa;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #6a1b9a;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .code-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #4a148c;
+    }
+
+    #final_code {
+      font-size: 1.2rem;
+      color: #4a148c;
+    }
+
+    @media (max-width: 900px) {
+      .grid-table, .grid-head {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<main>
+<form id="mbti-section" method="post"
+      action="https://script.google.com/macros/s/AKfycbwXt3k_5piqocGOuT1t9TiS0KNXjVsbr_9sdKLzL2eFCn9jmhXO_wPGtgZofi7RpZfzFQ/exec">
+  <!-- E/I Row -->
+  <div class="grid-head">
+    <div class="cell" style="text-align:center;"><strong>باہر یا اندر کی دنیا</strong></div>
+    <div class="cell" style="text-align:center;"><strong>—</strong></div>
+    <div class="cell" style="text-align:center;"><strong>آپ کا کوڈ</strong></div>
+  </div>
+    <div class="grid-head">
+<input type="text" name="name" placeholder="Full Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number"><br>
+    <input type="text" name="institute" placeholder="Institute Name"><br>
+    <input type="text" name="section" placeholder="Section"><br>
+      </div>
+  <div class="grid-table">
+    <div class="cell">
+      <h3>Extraversion (E)</h3>
+      <p>باہر کی دنیا، لوگوں اور چیزوں پر توجہ مرکوز ہوتی ہے۔</p>
+      <p>لوگوں سے گھل مل کر توانائی محسوس کرتے ہیں۔</p>
+      <p>عملی قدم اٹھا کر اچھا محسوس کرتے ہیں۔</p>
+      <p>فعال انداز میں کام کرنا پسند کرتے ہیں۔</p>
+      <p>لکھنے کے مقابلے میں لوگوں سے بات چیت کرنا پسند کرتے ہیں۔</p>
+      <p>آئیڈیاز پر بات چیت کے ذریعے عمل کرتے ہیں۔</p>
+      <p>خود کام کر کے، دوسروں سے اشتراک کر کے اور بات چیت کر کے زیادہ سیکھتے ہیں۔</p>
+      <p>وسیع دلچسپیاں رکھتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <h3>Introversion (I)</h3>
+      <p>خیالات، یادوں، یا جذبات پر اندرونی توجہ دیتے ہیں۔</p>
+      <p>خیالات اور تصورات پر سوچ بچار سے توانائی حاصل کرتے ہیں۔</p>
+      <p>بات چیت کے مقابلے میں تحریری طور پر اظہار خیال کو ترجیح دیتے ہیں۔</p>
+      <p>اکیلے وقت نکال کر کام کرنے سے بہتر انداز میں سیکھتے ہیں۔</p>
+      <p>پرسکون ماحول میں کام کرنے کو ترجیح دیتے ہیں۔</p>
+      <p>کام پر طویل عرصے تک توجہ مرکوز رکھ سکتے ہیں۔</p>
+      <p>سوچ بچار، پرسکون انداز میں کام کرنے، نجی معاملات تک محدود رہنے یا گہری شخصیت ہونے کے حوالے سے جانے جاتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <label for="ei_code" class="code-label">معروف حرف درج کریں (E یا I)</label>
+      <input type="text" name="text1" id="ei_code" maxlength="1" placeholder="مثال: E" required />
+    </div>
+  </div>
+
+  <!-- S/N Row -->
+  <div class="grid-head">
+    <div class="cell" style="text-align:center;"><strong>جاننے اور سمجھنے کا انداز</strong></div>
+    <div class="cell" style="text-align:center;"><strong>—</strong></div>
+    <div class="cell" style="text-align:center;"><strong>آپ کا کوڈ</strong></div>
+  </div>
+  <div class="grid-table">
+    <div class="cell">
+      <h3>Sensing (S)</h3>
+      <p>حال پر توجہ مرکوز رکھتے ہیں۔</p>
+      <p>زیادہ توجہ اس بات پر ہے کہ اس وقت کیا ہو رہا ہے۔</p>
+      <p>حقائق، مضبوط اور ٹھوس معلومات کو ترجیح دیتے ہیں۔</p>
+      <p>تفصیلات، واضح معلومات اور حقائق پر دھیان دیتے ہیں۔</p>
+      <p>منظم اور ترتیب سے کیے گئے کاموں کو پسند کرتے ہیں۔</p>
+      <p>کام کے دوران میں حواس خمسہ کا استعمال کرنا پسند کرتے ہیں۔</p>
+      <p>مستحکم رفتار سے کام کرنے کی طاقت اور صلاحیت رکھتے ہیں۔</p>
+      <p>مستقل مزاج، عملی اور منظم شخصیت کے طور پر جانے جاتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <h3>وجدان (N)</h3>
+      <p>مستقبل پر، اس کے مواقع اور امکانات پر توجہ مرکوز رکھتے ہیں۔</p>
+      <p>وسیع منظر میں حقائق و واقعات کی مخصوص ترتیب اور ان کے درمیان تعلق کو دیکھتے ہیں۔</p>
+      <p>ٹھوس معلومات کو اس وقت یاد رکھتے ہیں جب وہ حقائق و واقعات کی خاص ترتیب کا حصہ ہوں۔</p>
+      <p>تخیل کی صفت اور تخلیقی صلاحیت کے مالک ہوتے ہیں۔</p>
+      <p>کام کے دوران روٹین اور ترتیب سے بور ہو جاتے ہیں۔</p>
+      <p>مسائل حل کرنا اور کئی بار میں سیکھنا پسند کرتے ہیں۔</p>
+      <p>مستقل رفتار سے کام کرنے کی طاقت کی بجائے کبھی کبھی اچانک اپنے اندر بہت زیادہ توانائی محسوس کرتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <label for="sn_code" class="code-label">معروف حرف درج کریں (S یا N)</label>
+      <input type="text" name="text2" id="sn_code" maxlength="1" placeholder="مثال: S" required />
+    </div>
+  </div>
+
+  <!-- T/F Row -->
+  <div class="grid-head">
+    <div class="cell" style="text-align:center;"><strong>رائے قائم کرنے اور فیصلے کرنے کا انداز</strong></div>
+    <div class="cell" style="text-align:center;"><strong>—</strong></div>
+    <div class="cell" style="text-align:center;"><strong>آپ کا کوڈ</strong></div>
+  </div>
+  <div class="grid-table">
+    <div class="cell">
+      <h3>Thinking (T)</h3>
+      <p>فیصلوں کے منطقی نتائج کو پرکھنے کی کوشش کرتے ہیں۔ کسی تعصب، جانب داری یا پسند نا پسند کے بغیر فوائد اور نقصانات کے وزن کا اندازہ کرتے ہیں۔</p>
+      <p>ذاتی رائے کو ایک طرف رکھ کر تجزیے اور منطق کی بنیاد پر فیصلے کرتے ہیں۔</p>
+      <p>مسائل حل کرنے اور تفصیلی تجزیہ و تنقید کرنے میں خوشی محسوس کرتے ہیں۔</p>
+      <p>ایسے معیاری اصول پسند کرتے ہیں جنھیں یکساں طور پر لاگو کیا جا سکے۔</p>
+      <p>ڈیٹا اور اعداد و شمار میں وجوہات اور ان کے اثرات دیکھنے کی کوشش کرتے ہیں۔</p>
+      <p>احساسات پر اس وقت غور کرتے ہیں جب انھیں حقائق کی شکل میں پیش کیا جائے۔</p>
+    </div>
+    <div class="cell">
+      <h3>Feeling (F)</h3>
+      <p>ذاتی رائے، احساسات اور پسند نا پسند کی بنیاد پر فیصلے کرتے ہیں۔</p>
+      <p>دوسروں کو سمجھنے، ان کی تعریف کرنے اور مدد کرنے میں خوشی محسوس کرتے ہیں۔</p>
+      <p>دوسروں میں خوبیاں ڈھونڈ کر ان کی تعریف کرنے کے مواقع تلاش کرتے ہیں۔</p>
+      <p>ہم آہنگی کا ماحول پیدا کرتے ہیں اور اس کی قدر کرتے ہیں۔</p>
+      <p>ہر آدمی کو ایک منفرد شخصیت سمجھ کر اہمیت دیتے ہیں۔</p>
+      <p>اندازہ لگانے کی کوشش کرتے ہیں کہ فیصلوں کا دوسروں پر کیا اثر ہو گا۔</p>
+      <p>ایک دوسرے کی مدد اور حوصلہ افزائی کے ماحول میں بہترین طریقے سے کام کرتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <label for="tf_code" class="code-label">معروف حرف درج کریں (T یا F)</label>
+      <input type="text" name="text3" id="tf_code" maxlength="1" placeholder="مثال: T" required />
+    </div>
+  </div>
+
+  <!-- J/P Row -->
+  <div class="grid-head">
+    <div class="cell" style="text-align:center;"><strong>باہر کی دنیا کے بارے میں رویہ</strong></div>
+    <div class="cell" style="text-align:center;"><strong>—</strong></div>
+    <div class="cell" style="text-align:center;"><strong>آپ کا کوڈ</strong></div>
+  </div>
+  <div class="grid-table">
+    <div class="cell">
+      <h3>Judging (J)</h3>
+      <p>معلومات حاصل کر کے فیصلے کرنے کو ترجیح دیتے ہیں۔ جتنا جلد ہو سکے فیصلہ کر لیتے ہیں۔</p>
+      <p>معاملات طے کرنے اور انھیں منطقی انجام تک پہنچانے میں خوشی محسوس کرتے ہیں۔</p>
+      <p>خود کو اور اپنے ماحول کو منظم رکھتے ہیں اور منصوبہ بندی سے کام لیتے ہیں۔</p>
+      <p>معاملات میں واضح کردار اور توقعات کو پسند کرتے ہیں۔</p>
+      <p>کاموں کو مکمل کرنا اور انھیں نتیجہ خیز بنانا پسند کرتے ہیں۔</p>
+      <p>آخری لمحات میں دباؤ سے بچنے کے لیے پہلے سے منصوبہ بندی کرتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <h3>Perceiving (P)</h3>
+      <p>معلومات حاصل کر کے انھیں سمجھنے کو ترجیح دیتے ہیں۔</p>
+      <p>جہاں تک ممکن ہو کسی متعین وقت، منصوبہ بندی یا نتیجے کو ذہن میں رکھے بغیر معاملات کو لے کر چلتے ہیں۔</p>
+      <p>زندگی کو کنٹرول کرنے کی بجائے "اپنی" زندگی گزارنا اور تجربات کرنا پسند کرتے ہیں۔</p>
+      <p>نئے مواقع، متبادل طریقوں اور آخری لمحات میں تبدیلیوں کے لیے تیار رہتے ہیں۔</p>
+      <p>منصوبے شروع کرنا پسند کرتے ہیں لیکن انھیں مکمل کبھی نہیں کرتے۔</p>
+      <p>خود کو ماحول کے مطابق ڈھال سکتے ہیں اور لچک دار رویہ رکھتے ہیں۔</p>
+      <p>آخری لمحات کے دباؤ میں زیادہ متحرک ہو جاتے ہیں۔</p>
+    </div>
+    <div class="cell">
+      <label for="jp_code" class="code-label">معروف حرف درج کریں (J یا P)</label>
+      <input type="text" name="text4" id="jp_code" maxlength="1" placeholder="مثال: J" required />
+    </div>
+  </div>
+
+  <!-- Final MBTI Code -->
+  <div class="grid-head">
+    <div class="cell" colspan="3" style="text-align:center;"><strong>آپ کی شخصیت کا کوڈ</strong></div>
+  </div>
+    <div class="grid-head">
+      <div class="cell" colspan="3" style="text-align:center;"><strong>آپ کی شخصیت کا کوڈ</strong></div>
+    </div>
+    <div style="text-align:center; margin-top:10px;">
+      <button type="submit">محفوظ کریں اور کوڈ دیکھیں</button>
+      <div id="final_code" style="margin-top:10px; font-weight:bold;"></div>
+    </div>
+
+</form>
+<script>
+function sendFormData(e) {
+  e.preventDefault();
+
+  const url = "https://script.google.com/macros/s/AKfycbwXt3k_5piqocGOuT1t9TiS0KNXjVsbr_9sdKLzL2eFCn9jmhXO_wPGtgZofi7RpZfzFQ/exec";
+
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    institute: document.getElementById("institute").value,
+    section: document.getElementById("section").value,
+    text1: document.getElementById("text1").value,
+    text2: document.getElementById("text2").value,
+    text3: document.getElementById("text3").value,
+    text4: document.getElementById("text4").value
+  };
+
+  fetch(url, {
+    method: "POST",
+    contentType: "application/json",
+    body: JSON.stringify(data)
+  })
+  .then(r => r.text())
+  .then(alert);
+}
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
