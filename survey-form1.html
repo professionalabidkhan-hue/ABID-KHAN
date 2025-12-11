@@ -59,7 +59,7 @@ input[type="text"] {
     <p>یہ ٹیسٹ ڈاکٹر جان ہالینڈ کے RIASEC ماڈل کی بنیاد پر تیار کیا گیا ہے۔ ہر بیان سے متفق ہوں تو سامنے والے خانے میں جواب درج کریں۔</p>
 </div>
 
-<form id="riasecForm" class="container" action="YOUR_APPS_SCRIPT_WEB_APP_URL">
+<form id="riasecForm" class="container" action="YOUR_APPS_SCRIPT_WEB_APP_URL"  onsubmit="goNext(); return false;>
 
 <!-- Realistic Section -->
 <div class="container">
@@ -285,61 +285,25 @@ input[type="text"] {
 
 
 <div class="d-flex justify-content-center mb-5">
+     <input type="text" name="q1" placeholder="Enter answer"><br><br>
     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
 </div>
-
-</form>
-
-
 <script>
-// Form submit
-document.getElementById('riasecForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    function goNext() {
+      // Get current page name
+      const currentPage = window.location.pathname.split("/").pop();
 
-    const codes = {
-        R: ['q1','q14','q22','q30','q32','q37','q7'],
-        I: ['q2','q11','q18','q21','q39','q33','q26'],
-        A: ['q3','q8','q17','q23','q27','q31','q41'],
-        S: ['q4','q12','q13','q20','q28','q40','q31_2'],
-        E: ['q5','q10','q16','q19','q29','q36','q42'],
-        C: ['q6','q9','q15','q20_2','q25','q35','q38']
-    };
-
-    let totals = {};
-    for (const code in codes) {
-        totals[code] = 0;
-        codes[code].forEach(q => {
-            let val = parseInt(document.querySelector(`[name="${q}"]`).value);
-            if (!isNaN(val)) totals[code] += val;
-        });
+      // Decide next page based on current page
+      if (currentPage === "survey-form1.html") {
+        window.location.href = "survey2.html";
+      } else if (currentPage === "survey2.html") {
+        window.location.href = "Thrid-survey.html";
+      } else if (currentPage === "Thrid-survey.html") {
+        alert("Thank you! You have completed all surveys.");
+      }
     }
+  </script>
 
-    // Extra bottom fields
-    ['career1','field1','code1'].forEach(f=>{
-        let val = document.querySelector(`[name="${f}"]`).value.trim().toUpperCase();
-        if (['R','I','A','S','E','C'].includes(val)) {
-            totals[val] += 5;
-        }
-    });
-
-    // Top 3
-    const top3 = Object.entries(totals).sort((a,b)=>b[1]-a[1]).slice(0,3).map(e=>e[0]);
-
-    // Alert
-    let message = `آپ کے RIASEC scores:\n\n`;
-    for (const code in totals) message += `${code}: ${totals[code]}\n`;
-    message += `\nTop 3 Codes: ${top3.join(', ')}`;
-    alert(message);
-
-    // Send to Google Sheet
-    fetch("YOUR_GAS_WEB_APP_URL", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(Object.fromEntries(new FormData(this)))
-    });
-});
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
