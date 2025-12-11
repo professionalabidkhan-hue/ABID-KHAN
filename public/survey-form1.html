@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIASEC ٹیسٹ - کیریئر کے رحمان</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Noto Nastaliq Urdu', sans-serif;
+    direction: rtl;
+    text-align: right;
+    background-color: #f9f9f9;
+}
+.header-bg {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.table th, .table td {
+    border: 2px solid #000;
+    text-align: center;
+    vertical-align: middle;
+}
+.table th {
+    background-color: #e0e0e0;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.section-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.container {
+    margin-bottom: 30px;
+}
+
+
+    .table input.form-control {
+        text-align: center;
+        background-color: #fff8dc; /* تھوڑا ہلکا رنگ تاکہ readable ہو */
+    }
+</style>
+</head>
+<body>
+
+<div class="header-bg">
+    <h1>کیریئر کے رجحان کا ٹیسٹ(RIASEC)</h1>
+    <p>یہ ٹیسٹ ڈاکٹر جان ہالینڈ کے RIASEC ماڈل کی بنیاد پر تیار کیا گیا ہے۔ ہر بیان سے متفق ہوں تو سامنے والے خانے میں جواب درج کریں۔</p>
+</div>
+
+<form id="riasecForm" class="container" action="YOUR_APPS_SCRIPT_WEB_APP_URL">
+
+<!-- Realistic Section -->
+<div class="container">
+  <!-- Contact Information Section -->
+<div class="container mb-4">
+    <h3 class="section-title">رابطے کی معلومات</h3>
+    <div class="row g-3">
+        <div class="col-md-6 col-sm-12">
+            <label for="name" class="form-label">نام</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="اپنا نام درج کریں" required>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label for="phone" class="form-label">فون نمبر</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="فون نمبر درج کریں" required>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label for="email" class="form-label">ای میل</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="ای میل درج کریں" required>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label for="institute" class="form-label">ادارہ / انسٹی ٹیوٹ</label>
+            <input type="text" class="form-control" id="institute" name="institute" placeholder="ادارہ کا نام درج کریں" required>
+        </div>
+    </div>
+</div>
+
+    <h2 class="section-title">Realistic (R)</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>SR</th><th>Question</th><th>Answer</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>مجھے چیزیں بنانے اور تعمیر کرنے میں دلچسپی ہے۔</td><td><input type="text" name="q1"></td></tr>
+            <tr><td>2</td><td>مجھے جانور پالنا اور ان کا خیال رکھنا پسند ہے۔</td><td><input type="text" name="q14"></td></tr>
+            <tr><td>3</td><td>مجھے مشینی آلات کے ساتھ کام کرنا اچھا لگتا ہے۔</td><td><input type="text" name="q22"></td></tr>
+            <tr><td>4</td><td>مجھے کھانا بنانے میں دلچسپی ہے۔</td><td><input type="text" name="q30"></td></tr>
+            <tr><td>5</td><td>مجھے مختلف مسائل کے بارے میں بات چیت میں حصہ لے کر مزہ آتا ہے۔</td><td><input type="text" name="q32"></td></tr>
+            <tr><td>6</td><td>مجھے چیزوں کو عملی طور پر کر کے دیکھنا پسند ہے۔</td><td><input type="text" name="q37"></td></tr>
+            <tr><td>7</td><td>مجھے گھر یا دفتر سے باہر جا کر کام کرنا پسند ہے۔</td><td><input type="text" name="q7"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Investigative Section -->
+<div class="container">
+    <h2 class="section-title">Investigative (I)</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>SR</th><th>Question</th><th>Answer</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>مجھے معمے حل کرنا اور پہیلیاں بوجھنا پسند ہے۔</td><td><input type="text" name="q2"></td></tr>
+            <tr><td>2</td><td>مجھے تجربات کرنا اچھا لگتا ہے۔</td><td><input type="text" name="q11"></td></tr>
+            <tr><td>3</td><td>مجھے سائنس میں دلچسپی ہے۔</td><td><input type="text" name="q18"></td></tr>
+            <tr><td>4</td><td>مجھے اعداد و شمار کی بنیاد پر فیصلہ کرنا پسند ہے۔</td><td><input type="text" name="q21"></td></tr>
+            <tr><td>5</td><td>مجھے ریاضی میں بہتر ہوں۔</td><td><input type="text" name="q39"></td></tr>
+            <tr><td>6</td><td>مجھے مختلف مسائل کے بارے میں بات چیت میں حصہ لے کر مزہ آتا ہے۔</td><td><input type="text" name="q33"></td></tr>
+            <tr><td>7</td><td>مجھے لوگوں کی مدد کرنا پسند ہے۔</td><td><input type="text" name="q26"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Artistic Section -->
+<div class="container">
+    <h2 class="section-title">Artistic (A)</h2>
+    <table class="table table-bordered">
+        <thead><tr><th>SR</th><th>Question</th><th>Answer</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>میں اپنے طور پر آزادی سے بہتر انداز میں کام کر سکتا/سکتی ہوں۔</td><td><input type="text" name="q3"></td></tr>
+            <tr><td>2</td><td>مجھے فن موسیقی سیکھنے کا شوق ہے۔</td><td><input type="text" name="q8"></td></tr>
+            <tr><td>3</td><td>مجھے تخلیقی تحریر لکھنے میں مزہ آتا ہے۔</td><td><input type="text" name="q17"></td></tr>
+            <tr><td>4</td><td>میں خود کو تخلیقی صلاحیتوں کا مالک سمجھتی/سمجھتا ہوں۔</td><td><input type="text" name="q23"></td></tr>
+            <tr><td>5</td><td>مجھے موسیقی کے آلات میں دلچسپی ہے۔</td><td><input type="text" name="q27"></td></tr>
+            <tr><td>6</td><td>مجھے ڈراموں اور خاکوں میں کام کرنا اچھا لگتا ہے۔</td><td><input type="text" name="q31"></td></tr>
+            <tr><td>7</td><td>مجھے ڈرائنگ اور نقشے بنانے میں دلچسپی ہے۔</td><td><input type="text" name="q41"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Social Section -->
+<div class="container">
+    <h2 class="section-title">Social (S)</h2>
+    <table class="table table-bordered">
+        <thead><tr><th>SR</th><th>Question</th><th>Answer</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>مجھے ٹیم کی شکل میں کام کرنا زیادہ پسند ہے۔</td><td><input type="text" name="q4"></td></tr>
+            <tr><td>2</td><td>مجھے لوگوں کو پڑھانا یا تربیت دینا اچھا لگتا ہے۔</td><td><input type="text" name="q12"></td></tr>
+            <tr><td>3</td><td>مجھے لوگوں کو ان کے مسائل کے حل کرنے میں مدد دینا اچھا لگتا ہے۔</td><td><input type="text" name="q13"></td></tr>
+            <tr><td>4</td><td>مجھے لوگوں کے شفایاب اور صحت مند ہونے سے دلچسپی ہے۔</td><td><input type="text" name="q20"></td></tr>
+            <tr><td>5</td><td>مجھے دوسروں کی تہذیب و ثقافت کے بارے میں جاننا اچھا لگتا ہے۔</td><td><input type="text" name="q28"></td></tr>
+            <tr><td>6</td><td>مجھے لوگوں کی مدد کرنا پسند ہے۔</td><td><input type="text" name="q40"></td></tr>
+            <tr><td>7</td><td>میں جاننا چاہتا/چاہتی ہوں کہ چیزیں دراصل کیسے کام کرتی ہیں؟</td><td><input type="text" name="q31_2"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Enterprising Section -->
+<div class="container">
+    <h2 class="section-title">Enterprising (E)</h2>
+    <table class="table table-bordered">
+        <thead><tr><th>SR</th><th>Question</th><th>Answer</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>میں ایک پر جوش فرد ہوں اور اپنے مقاصد خود طے کرنے میں دلچسپی رکھتا/رکھتی ہوں۔</td><td><input type="text" name="q5"></td></tr>
+            <tr><td>2</td><td>مجھے دوسروں پر اثر انداز ہونے اور ان سے کام لینے میں دلچسپی ہے۔</td><td><input type="text" name="q10"></td></tr>
+            <tr><td>3</td><td>مجھے چیزیں فروخت کرنے میں دلچسپی ہے۔</td><td><input type="text" name="q16"></td></tr>
+            <tr><td>4</td><td>میں نئی ذمہ داریاں جلدی قبول کر لیتا/لیتی ہوں۔</td><td><input type="text" name="q19"></td></tr>
+            <tr><td>5</td><td>میں اپنا کاروبار شروع کرنا چاہتی/چاہتا ہوں۔</td><td><input type="text" name="q29"></td></tr>
+            <tr><td>6</td><td>مجھے قائدانہ کردار ادا کرنا پسند ہے۔</td><td><input type="text" name="q36"></td></tr>
+            <tr><td>7</td><td>5 میں ایک پر جوش فرد ہوں اور اپنے مقاصد خود طے کرنے میں دلچسپی رکھتا/رکھتی ہوں۔</td><td><input type="text" name="q42"></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Conventional Section -->
+<div class="container">
+    <h2 class="section-title">Conventional (C)</h2>
+    <table class="table table-bordered">
+        <thead><tr><th>SR</th><th>Question</th><th>Answer</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td>میں اپنی چیزیں ترتیب سے رکھتا/رکھتی ہوں۔</td><td><input type="text" name="q6"></td></tr>
+            <tr><td>2</td><td>میں چاہتا/چاہتی ہوں کہ مجھے کام کرنے کے لیے واضح ہدایات دی جائیں۔</td><td><input type="text" name="q9"></td></tr>
+            <tr><td>3</td><td>میں روزانہ آٹھ گھنٹے دفتر میں کام کر سکتا/سکتی ہوں۔</td><td><input type="text" name="q15"></td></tr>
+            <tr><td>4</td><td>میں کام کی تفصیلات کی طرف توجہ دیتی/دیتا ہوں۔</td><td><input type="text" name="q20_2"></td></tr>
+            <tr><td>5</td><td>مجھے فائلنگ اور ٹائپنگ میں دلچسپی ہے۔</td><td><input type="text" name="q25"></td></tr>
+            <tr><td>6</td><td>میں چاہوں گا/چاہوں گی کہ کسی دفتر میں کام کروں۔</td><td><input type="text" name="q35"></td></tr>
+            <tr><td>7</td><td>مجھے تقریر کرنے میں دلچسپی ہے۔</td><td><input type="text" name="q38"></td></tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- RIASEC Results Header -->
+<div class="container mt-5">
+    <div class="text-center p-4 rounded" style="background: linear-gradient(90deg, #4facfe, #00f2fe); color: white;">
+        <h2>RIASEC ٹیسٹ کے نتائج کا چارٹ</h2>
+    </div>
+
+    <!-- Results Table -->
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered text-center" style="background-color: #f9f9f9;">
+            <thead style="background-color: #007bff; color: white;">
+                <tr>
+                    <th>ممکنہ کیریئرز</th>
+                    <th>موزوں پیشہ/شعبہ</th>
+                    <th>رجمان</th>
+                </tr>
+            </thead>
+<tbody>
+             <tr>
+                    <td> R <br>Reaistic</td>
+                    <td> ایسے افراد میں عموماً شدت کا رجحان نظر آتا ہے۔ وہ مقابلے کی فضا میں کام کرنے کو پسند کرتے ہیں۔ وہ ان سرگرمیوں میں دلچسپی رکھتے ہیں جن کے لیے جسمانی اعضاء کو کام میں لانے، جسمانی مہارت اور طاقت کی ضرورت ہوتی ہے۔ ایسے لوگ میکینیکل اور جسمانی حرکت والے کاموں کے لیے زیادہ موزوں ہوتے ہیں۔ ان کے لیے زراعت، صحت، تعمیرات، مکینیکل کام، انجینئرنگ، مہمان نوازی اور فوڈ انڈسٹری جیسے شعبے موزوں ہو سکتے ہیں۔</td>
+                    <td>فیشن انجینئر، فوٹوگرافر، ویب ایپ ڈیویلپر، آئی ٹی سپورٹ، سسٹم اینالسٹ، آرکیٹیکٹ، کار پینٹر، سروئیر، الیکٹریکل/کیمیکل/سول/انڈسٹریل/مکینیکل/نیوکلیئر/پٹرولیم/ماحولیاتی انجینئر، ڈینٹسٹ، میڈیکل ٹیکنیشن، آپٹیشن، فزیو تھراپسٹ، شیف، سیکورٹی گارڈ، ڈرائیور، پائلٹ۔
+ </td>
+                </tr>
+     <tr>
+                    <td> I <br>Investigative</td>
+                    <td> ایسے افراد عموماً خیالات اور تصورات کے ساتھ کام کرنا پسند کرتے ہیں۔ وہ ایسے کام کرنا پسند کرتے ہیں جن میں نظریہ، تحقیق اور فکری تفتیش شامل ہو۔ وہ مشاہدہ کرنا، سیکھنا، تجزیہ کرنا اور مسائل حل کرنا پسند کرتے ہیں۔ ان کے لیے بائیولوجی، کیمسٹری، انجینئرنگ، سرجری، نفسیات اور معاشیات جیسے شعبے موزوں ہو سکتے ہیں</td>
+                    <td>ائیکروبائیولوجسٹ، فوڈ ٹیکنیشن، انڈسٹریل/مکینیکل انجینئر، سائیکالوجسٹ، پیتھالوجسٹ، کیمسٹ، کائروپریکٹر، اکانومسٹ، کمپیوٹر پروگرامر، کار پینٹر، الیکٹریشن، پلمبر، سپیچ تھراپسٹ، نرس، قانون دان، جرنلسٹ، نیوٹریشنسٹ، فارماسسٹ، فزیشن۔
+
+ </td>
+                </tr>
+     <tr>
+                    <td> A <br>Artistic</td>
+                    <td> ایسے افراد عموماً روایت سے ہٹ کر سوچنا پسند کرتے ہیں۔ وہ نئے کیوریٹر، فیشن یا ان فوٹوگرافر، رانر، آرمینیکان
+اور تخلیقی آئیڈیاز تلاش کرتے ہیں اور چیزوں کو مختلف نقطہ نظر
+سے دیکھنا پسند کرتے ہیں۔ وہ ایسی جگہوں پر کام کرنا پسند کرتے ہیں
+جہاں نظم و ضبط کی زیادہ پابندیاں نہ ہوں۔ ان کے لیے ابلاغیات،
+کاسمیٹالوجی، فائن آرٹس، اداکاری، ریڈیو، ٹیلی ویژن، گھر کی آرائش اور
+قانون دان، شیف، انٹیریئر ڈیزائنر، لینڈ سکیپ
+آرکیٹیکٹ، گرافک ڈیزائنر، بیوٹیشن، ہیئر ڈریسر
+آرکیٹیکچر جیسے شعبے موزوں ہو سکتے ہیں۔</td>
+                    <td>ٹیچر، سٹوڈنٹ کونسلر، ایکٹر، ڈائریکٹر، ایڈیٹر,قانون دان، شیف، انٹیریئر ڈیزائنر، لینڈ سکیپ
+آرکیٹیکٹ، گرافک ڈیزائنر، بیوٹیشن، ہیئر ڈریسر
+آرکیٹیکچر جیسے شعبے موزوں ہو سکتے ہیں۔
+پروڈیوسر، فلمساز، جرنلسٹ، ماڈل، فنڈ ریزر
+
+ </td>
+                </tr>
+    <tr>
+                    <td> S <br>Social</td>
+                    <td> ایسے افراد عموماً دوسروں کی خدمت اور مدد کرنا پسند کرتے ہیں۔ وہ دوسروں کے ساتھ رابطہ کاری اور قریبی تعلقات قائم کرنے میں بہت خوشی محسوس کرتے ہیں۔ چیزوں کی بجائے دوسرے لوگوں کے ساتھ مل کر کام کرنا پسند کرتے ہیں۔ ان کے لیے تعلقات عامہ، ایڈورٹائزنگ، کونسلنگ، نرسنگ، فزیکل تھراپی اور سیاحت جیسے شعبے موزوں ہو سکتے ہیں۔</td>
+                    <td>کسٹمر سروس، انشورنس ایجنٹ، فنانشل ایڈوائزر، ایونٹ پلائر، فلائٹ اٹینڈنٹ، ٹیچر، پولیس آفیسر، سائیکالوجسٹ، ہیومن ریسورس مینجر، لائبریرین، ٹیوٹر، میڈیکل ٹیکنیشن، نرس، آپٹیشن، فارماسسٹ، فزیشن، تھراپسٹ، ایڈورٹائزنگ ایجنٹ، سٹوڈنٹ کونسلر، ٹورسٹ گائیڈ۔
+
+ </td>
+                </tr>
+     <tr>
+                    <td> S <br>Enterprising</td>
+                    <td>ایسے افراد عموماً لوگوں کی رہنمائی کرنا پسند کرتے ہیں۔ ان کے پاس بہترین سماجی مہارت ہوتی ہے اور وہ دوسروں کو قائل کرنے میں اچھے ہوتے ہیں۔ وہ دوسروں کے ساتھ مل کر کام کرنا، ان سے کام لینا اور نتائج حاصل کرنا پسند کرتے ہیں۔ ان کے لیے رئیل اسٹیٹ، فیشن، مارکیٹنگ، سیلز، قانون، سیاسیات، بین الاقوامی تجارت، بینکنگ اور مالیات جیسے شعبے موزوں ہو سکتے ہیں۔ </td>
+                    <td>
+رئیل اسٹیٹ ایجنٹ، مارکیٹنگ سیلز مینیجر، سراغ رساں، قانون دان، ایکٹر، ڈائریکٹر، فلم ساز، جرنلسٹ، ٹریول ایجنٹ، انشورنس ایجنٹ، اکانومسٹ، فنانشل ایڈوائزر، مینجمنٹ کنسلٹنٹ، اکاؤنٹنٹ، پولیس آفیسر، ڈرائیور، کنٹرولر، سیاسی کارکن۔
+ </td>
+                </tr>
+     <tr>
+                    <td> C <br>Conventional</td>
+                    <td>ایسے افراد عموماً منظم ہوتے ہیں اور ایک طریقہ کار کے مطابق ٹھیک ٹھیک کام کرنا پسند کرتے ہیں۔ وہ چیزوں کو وقت پر اور قواعد و ضوابط کے مطابق کرنے کی کوشش کرتے ہیں۔ وہ ترتیب، تعظیم اور کام کی تفصیلات میں جانے کو پسند کرتے ہیں، اور اعداد و شمار کے ساتھ کام کرنے میں دلچسپی رکھتے ہیں۔ ان کے لیے اکاؤنٹنگ، رپورٹنگ، ایڈمنسٹریشن، بینکنگ، ڈیٹا پروسیسنگ اور اعداد و شمار سے متعلقہ شعبے موزوں ہو سکتے ہیں۔ </td>
+                    <td>
+ایڈمنسٹریٹر، ہیومن ریسورس مینیجر، ایگزیکٹو مینیجر، کنسلٹنٹ، آئی ٹی مینیجر، کنسٹرکشن مینیجر اور اکاؤنٹنٹ، فنانشل اینالسٹ، ڈیٹا اینالسٹ، سیکرٹری، مارکیٹنگ مینیجر، ماہر شماریات، پائلٹ، ویلڈر، پلمبر، پائپ فٹر، الیکٹریشن، ایئر ٹریفک کنٹرولر، رپورٹر، فنانشل ایڈوائزر، لائبریرین وغیرہ۔
+ </td>
+                </tr>
+ </tbody><br><br>
+<tbody>
+<h3> اپنے متعلقہ کوڈز کے تحت خوف کی وجہ سے تین پسندیدہ کیریئرز کے نام لکھیں۔ یہ نام آپ کسی ایک، دو یا تینوں کوڈز میں سے لکھ سکتے ہیں۔ </h3>
+
+</tbody>
+            <tbody>
+
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="career1"></td>
+                    <td><input type="text" class="form-control" name="field1"></td>
+                    <td><input type="text" class="form-control" name="code1"></td>
+                </tr>
+           
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="d-flex justify-content-center mb-5">
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+</div>
+
+</form>
+
+
+<script>
+// Form submit
+document.getElementById('riasecForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const codes = {
+        R: ['q1','q14','q22','q30','q32','q37','q7'],
+        I: ['q2','q11','q18','q21','q39','q33','q26'],
+        A: ['q3','q8','q17','q23','q27','q31','q41'],
+        S: ['q4','q12','q13','q20','q28','q40','q31_2'],
+        E: ['q5','q10','q16','q19','q29','q36','q42'],
+        C: ['q6','q9','q15','q20_2','q25','q35','q38']
+    };
+
+    let totals = {};
+    for (const code in codes) {
+        totals[code] = 0;
+        codes[code].forEach(q => {
+            let val = parseInt(document.querySelector(`[name="${q}"]`).value);
+            if (!isNaN(val)) totals[code] += val;
+        });
+    }
+
+    // Extra bottom fields
+    ['career1','field1','code1'].forEach(f=>{
+        let val = document.querySelector(`[name="${f}"]`).value.trim().toUpperCase();
+        if (['R','I','A','S','E','C'].includes(val)) {
+            totals[val] += 5;
+        }
+    });
+
+    // Top 3
+    const top3 = Object.entries(totals).sort((a,b)=>b[1]-a[1]).slice(0,3).map(e=>e[0]);
+
+    // Alert
+    let message = `آپ کے RIASEC scores:\n\n`;
+    for (const code in totals) message += `${code}: ${totals[code]}\n`;
+    message += `\nTop 3 Codes: ${top3.join(', ')}`;
+    alert(message);
+
+    // Send to Google Sheet
+    fetch("YOUR_GAS_WEB_APP_URL", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(Object.fromEntries(new FormData(this)))
+    });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
