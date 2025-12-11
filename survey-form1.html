@@ -26,6 +26,21 @@ body {
     text-align: center;
     vertical-align: middle;
 }
+        .home-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #218838;
+    }
 .table th {
     background-color: #e0e0e0;
 }
@@ -282,13 +297,10 @@ input[type="text"] {
 </div>
 
 
+  <!-- Home button with icon -->
+  <a href="index.html" class="home-button">🏠 Go to Main Page</a>
 
-
-<div class="d-flex justify-content-center mb-5">
-     <input type="text" name="q1" placeholder="Enter answer"><br><br>
-    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-</div>
-<script>
+  <script>
     function goNext() {
       // Get current page name
       const currentPage = window.location.pathname.split("/").pop();
@@ -300,9 +312,14 @@ input[type="text"] {
         window.location.href = "Thrid-survey.html";
       } else if (currentPage === "Thrid-survey.html") {
         alert("Thank you! You have completed all surveys.");
+        window.location.href = "index.html"; // send back to main page after last survey
       }
     }
   </script>
+
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
