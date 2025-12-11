@@ -12,7 +12,8 @@ body {
     font-family: 'Noto Nastaliq Urdu', sans-serif;
     direction: rtl;
     text-align: right;
-    background-color: #f9f9f9;
+    background-color: #f5f5f5;
+    padding: 20px;
 }
 .header-bg {
     background-color: #007bff;
@@ -21,11 +22,107 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+   .container {
+    max-width: 750px;
+    margin: auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .header {
+    background-color: #87CEEB; /* light blue background */
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .sub-header {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .instructions {
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    text-align: center;
+  }
+
+  .score-cell {
+    background-color: #e0e0e0;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+   table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+
+  input[type="text"] {
+    width: 90%;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+  }
+
+  @media (max-width: 500px) {
+    td, th {
+      font-size: 12px;
+    }
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+    .score-cell {
+      padding: 8px 0;
+      font-size: 14px;
+    }
+    table, th, td {
+      font-size: 12px;
+    }
+  }
+  /* Responsive for smaller screens */
+  @media (max-width: 500px) {
+    .score-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .score-cell {
+      padding: 8px 0;
+      font-size: 14px;
+    }
+  }
 </style>
   </head>
   <body>
-  <form id="riasecFormB" class="container" action="YOUR_APPS_SCRIPT_WEB_APP_URL">
-<!-- Realistic Section -->
+<form id="SURVEY-B" onsubmit="handleSubmit(event)" method="POST"
+      class="container"
+      action="https://script.google.com/macros/s/AKfycbxZTvIJ5nFqhjW6yOoSefGPyNecPDGE2l08Q7Pem_0/dev">
 <div class="container">
   <!-- Contact Information Section -->
 <div class="container mb-4">
@@ -49,10 +146,762 @@ body {
         </div>
     </div>
 </div>
+<div class="container">
+  <!-- Header with background color -->
+  <div class="header">
+    ملٹی پل انٹیلی جنس
+    <br>
+    یہ نیک باورڈ کارڈ ڈالر کے پیش کردہ ملٹی پل انٹیلی جنس کے تصور کی بنیاد پر تیار کیا گیا ہے
+  </div>
 
+  <!-- Sub-header without background -->
+  <div class="sub-header">
+    براہ کرم ہر بیان کے سامنے درج ذیل درجہ بندی کے مطابق 1 سے 5 تک اسکور درج کریں
+  </div>
 
+ <!-- Score grid -->
+  <div class="score-grid">
+    <div class="score-cell">بالکل اتفاق نہیں: 1</div>
+    <div class="score-cell">2 :کسی حد تک اتفاق نہیں: </div>
+    <div class="score-cell">3 :معلوم نہیں</div>
+    <div class="score-cell">4 :کسی حد تک اتفاق</div>
+    <div class="score-cell">5 :مکمل اتفاق:</div>
+  </div>
+</div>
+<div class="container">
+  <form action="#" method="post" style="max-width:1200px; margin:auto; font-family:'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;">
+  <h2 style="text-align:center;">RIASEC فارم SECTION 1</h2>
 
+  <table>
+    <thead>
+      <tr>
+        <th>جواب درج کریں</th> <!-- Left column: input field -->
+        <th>سوال</th>         <!-- Middle column: question in Urdu -->
+        <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" name="q1"></td>
+        <td>مجھے چیزوں کو ان کی خصوصیات کی بنا پر ترتیب دینا پسند ہے۔</td>
+        <td>۱</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q2"></td>
+        <td>مجھے موسم اور آب و ہوا کے بارے میں بات کرنا اچھا لگتا ہے۔</td>
+        <td>۲</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q3"></td>
+        <td>ہائیکنگ اور کیمپنگ میری پسندیدہ سرگرمیاں ہیں۔</td>
+        <td>۳</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q4"></td>
+        <td>مجھے پودے لگانے اور درخت اُگانے کا شوق ہے۔</td>
+        <td>۴</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q5"></td>
+        <td>میرا خیال ہے کہ جنگلی جانوروں اور پرندوں کی حفاظت ضروری ہے۔</td>
+        <td>۵</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q6"></td>
+        <td>اپنی کلاس میں عمر اور قد کے اعتبار سے طالب علموں کے گروپ بنانا میرے لیے مشکل نہیں۔</td>
+        <td>۶</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q7"></td>
+        <td>میری زندگی میں جانوروں اور چرند پرند کی بڑی اہمیت ہے۔</td>
+        <td>۷</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q8"></td>
+        <td>میرا خیال ہے کہ گھر کی استعمال شدہ چیزوں کو دوبارہ استعمال کے قابل بنانا چاہیے۔</td>
+        <td>۸</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q9"></td>
+        <td>مجھے بائیولوجی، باٹنی اور زوالوجی پڑھنے میں مزہ آتا ہے۔</td>
+        <td>۹</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="q10"></td>
+        <td>میرا بہت سا وقت سیر و تفریح میں گزرتا ہے۔</td>
+        <td>۱۰</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 style="text-align:center;">RIASEC فارم SECTION 2</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q11"></td>
+      <td>مجھے چیزوں کے اندر ترتیب اور ڈیزائن کا جلد پتہ چل جاتا ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q12"></td>
+      <td>میں مختلف طرز کی آوازوں کی طرف جلدی متوجہ ہو جاتا/جاتی ہوں۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q13"></td>
+      <td>خوبصورت آواز میں ترانے اور گیت میرے دل پر بہت اثر کرتے ہیں۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q14"></td>
+      <td>مجھے ساز بجانے سے ہمیشہ دلچسپی رہی ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q15"></td>
+      <td>شعروں کا اتار چڑھاؤ اور ترنم مجھے بہت متاثر کرتا ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q16"></td>
+      <td>مجھے ہم آواز اور ہم قافیہ چیزوں کو یاد کرنے میں آسانی رہتی ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q17"></td>
+      <td>مسلسل ٹی وی دیکھنا یا ریڈیو سننا میرے لیے آسان ہے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q8"></td>
+      <td>مختلف قسم کی موسیقی سننے میں مجھے مزہ آتا ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q19"></td>
+      <td>ڈراموں اور فلموں کے مقابلے میں موسیقی کے پروگرام مجھے زیادہ پسند ہیں۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q20"></td>
+      <td>ملی نغموں، ترانوں کے بول مجھے آسانی سے یاد رہتے ہیں۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 3</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q21"></td>
+      <td>مجھے چیزوں کو ترتیب اور منظم طریقے سے رکھنا پسند ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q22"></td>
+      <td>ہر کام میں قدم بہ قدم رہنمائی سے مجھے بہت مدد ملتی ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q23"></td>
+      <td>مسائل حل کرنا میرے لیے آسان ہے۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q24"></td>
+      <td>مجھے بے ترتیب لوگوں سے جلد الجھن ہو جاتی ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q25"></td>
+      <td>مجھے اپنے ذہن میں حساب کتاب کرنے میں آسانی رہتی ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q26"></td>
+      <td>مسائل کی وجوہات جاننے میں مجھے مزہ آتا ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q27"></td>
+      <td>میرے لیے اس وقت تک کام شروع کرنا مشکل ہے، جب تک میرے سارے سوالوں کا جواب نہ مل جائے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q28"></td>
+      <td>چیزوں کو منظم کرنے اور ترتیب دینے سے مجھے کامیابی کی طرف بڑھنے میں مدد ملتی ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q29"></td>
+      <td>کمپیوٹر پر کیلکولیشن اور ڈیٹا سے تعلق رکھنے والے کام کر کے مجھے اطمینان حاصل ہوتا ہے۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q30"></td>
+      <td>چیزیں سمجھ آنے سے مجھے اطمینان حاصل ہوتا ہے۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 4</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q31"></td>
+      <td>مجھے دنیا میں اپنی حیثیت اور کردار کے بارے میں سمجھنے میں دلچسپی ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q32"></td>
+      <td>زندگی کے بارے میں سوال کرنا مجھے اچھا لگتا ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q33"></td>
+      <td>دین میرے لیے بڑی اہمیت رکھتا ہے۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q34"></td>
+      <td>آرٹ، ڈرائنگ، مصوری یا خطاطی کا اچھا کام دیکھ کر مجھے بہت خوشی ہوتی ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q35"></td>
+      <td>سکون کی مشق کر کے اور عبادات سے مجھے اطمینان حاصل ہوتا ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q36"></td>
+      <td>مجھے قدرت کے حیران کن مناظر اور مقامات کی سیر کرنا پسند ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q37"></td>
+      <td>مجھے ایسی کتابیں پڑھنے میں مزہ آتا ہے جن سے مجھے سوچنے کا موقع ملے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q38"></td>
+      <td>اگر مجھے نئی چیزوں کی قدر و قیمت معلوم ہو جائے تو انھیں سیکھنا میرے لیے آسان ہو جاتا ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q39"></td>
+      <td>میرے ذہن میں سوال پیدا ہوتا ہے کہ کیا کائنات میں عقل و فہم اور شعور رکھنے والی کوئی اور مخلوق بھی ہے؟</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q40"></td>
+      <td>قدیم لوگوں کے رہن سہن اور رسم و رواج کے بارے میں پڑھنے سے مجھے چیزوں کو سمجھنے میں مدد ملتی ہے۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 5</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q41"></td>
+      <td>دوسرے لوگوں سے میل جول کے ذریعے مجھے بہترین طریقے سے سیکھنے میں مدد ملتی ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q42"></td>
+      <td>زیادہ لوگوں میں اٹھنے بیٹھنے سے مجھے زیادہ خوشی حاصل ہوتی ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q43"></td>
+      <td>اسٹڈی گروپس میں کام کرنے سے مجھے بہت فائدہ ہوتا ہے۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q44"></td>
+      <td>مجھے دوسروں سے بات چیت کرنے میں مزہ آتا ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q45"></td>
+      <td>سیاست میں لینا بڑا بہت اہم ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q46"></td>
+      <td>مجھے ریڈیو اور ٹیلی وژن کے ٹاک شو سننا اور دیکھنا پسند ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q47"></td>
+      <td>مجھے مل جل کر کام کرنا اچھا لگتا ہے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q48"></td>
+      <td>مجھے اکیلے کام کرنا اچھا نہیں لگتا۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q49"></td>
+      <td>مجھے اسکول کالج میں پڑھائی کے علاوہ کھیلوں اور دوسری سرگرمیوں میں حصہ لینا اچھا لگتا ہے۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q50"></td>
+      <td>لوگوں کے مسائل اور ان کی سرگرمیوں کے بارے میں جاننے میں مجھے دلچسپی ہے۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 6</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q51"></td>
+      <td>مجھے اپنے ہاتھوں سے کام کرنا اور چیزیں بنانا اچھا لگتا ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q52"></td>
+      <td>زیادہ دیر تک کوئی کام کیے بغیر بیٹھنا میرے لیے بہت مشکل ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q53"></td>
+      <td>مجھے کھلی فضا میں کھیلے جانے والے کھیل پسند ہیں۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q54"></td>
+      <td>مجھے الفاظ کے بغیر بات چیت، مثلاً اشاروں کی زبان سے کام لینے کی اہمیت معلوم ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q55"></td>
+      <td>صحت مند جسم صحت مند دماغ کے لیے ضروری ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q56"></td>
+      <td>آرٹ اور فنون وقت گزارنے کے لیے اچھے مشغلے ہیں۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q57"></td>
+      <td>قص جذبات کے اظہار کا خوب صورت طریقہ ہے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q58"></td>
+      <td>مجھے اوزاروں کے ساتھ کام کرنا اچھا لگتا ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q59"></td>
+      <td>مجھے چاق و چوبند زندگی گزارنا پسند ہے۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q60"></td>
+      <td>خود کام کرنے سے مجھے سیکھنے میں زیادہ مدد ملتی ہے۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 7</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q61"></td>
+      <td>مجھے اپنے ہاتھوں سے کام کرنا اور چیزیں بنانا اچھا لگتا ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q62"></td>
+      <td>زیادہ دیر تک کوئی کام کیے بغیر بیٹھنا میرے لیے بہت مشکل ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q63"></td>
+      <td>مجھے کھلی فضا میں کھیلے جانے والے کھیل پسند ہیں۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q64"></td>
+      <td>مجھے الفاظ کے بغیر بات چیت، مثلاً اشاروں کی زبان سے کام لینے کی اہمیت معلوم ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q65"></td>
+      <td>صحت مند جسم صحت مند دماغ کے لیے ضروری ہے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q66"></td>
+      <td>آرٹ اور فنون وقت گزارنے کے لیے اچھے مشغلے ہیں۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q67"></td>
+      <td>قص جذبات کے اظہار کا خوب صورت طریقہ ہے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q68"></td>
+      <td>مجھے اوزاروں کے ساتھ کام کرنا اچھا لگتا ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q69"></td>
+      <td>مجھے چاق و چوبند زندگی گزارنا پسند ہے۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q70"></td>
+      <td>خود کام کرنے سے مجھے سیکھنے میں زیادہ مدد ملتی ہے۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 8</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q71"></td>
+      <td>میں اپنی خوبیوں اور خامیوں پر غور کرتا رہتا/کرتی رہتی ہوں۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q72"></td>
+      <td>جس مضمون سے میرا جذباتی لگاؤ ہو، اسے سیکھنا میرے لیے بہت آسان ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q73"></td>
+      <td>میں تنہائی میں بیٹھ کر اپنے گھر، خاندان اور لوگوں کے مسائل کے بارے میں سوچتا رہتا/سوچتی رہتی ہوں۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q74"></td>
+      <td>میرا موڈ میرے سیکھنے پر اثر انداز ہوتا ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q75"></td>
+      <td>میں اکثر سوچتا/سوچتی ہوں کہ کس طرح لوگوں کو آسانی سے انصاف ملے۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q76"></td>
+      <td>بہت سے لوگوں میں بیٹھ کر کام کرنے کی بجائے اکیلے کام کرنا مجھے زیادہ فائدہ مند لگتا ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q77"></td>
+      <td>کسی کام کی ہامی بھرنے سے پہلے مجھے سوچنا ہوتا ہے کہ مجھے یہ کام کیوں کرنا چاہیے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q78"></td>
+      <td>جب مجھے کسی بات پر یقین ہوتا ہے تو میری کوشش ہوتی ہے کہ اس کے لیے سو فی صد محنت کروں۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q79"></td>
+      <td>مجھے دوسروں کی مدد کرنے والے کام پسند ہیں۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q80"></td>
+      <td>میں صحیح بات کی حمایت اور نامناسب بات کی مخالفت میں آواز بلند کرنے کے لیے تیار ہوں۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-align:center;">RIASEC فارم SECTION 9</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>جواب درج کریں</th> <!-- Left column: input field -->
+      <th>سوال</th>         <!-- Middle column: question in Urdu -->
+      <th>سریل نمبر</th>    <!-- Right column: SR NO in Urdu -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="q81"></td>
+      <td>میرے لیے اپنے ذہن میں چیزوں اور خیالات کا تصور کرنا ممکن ہے۔</td>
+      <td>۱</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q82"></td>
+      <td>کمرے کو نئے سرے سے ترتیب دینا میرے لیے پر لطف کام ہے۔</td>
+      <td>۲</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q83"></td>
+      <td>مختلف اشیاء کے استعمال سے آرٹ کے نمونے اور فن پارے تیار کرنا مجھے اچھا لگتا ہے۔</td>
+      <td>۳</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q84"></td>
+      <td>گراف، چارٹ، خاکوں اور تصویروں کے ذریعے مجھے چیزیں یاد رکھنے میں آسانی ہوتی ہے۔</td>
+      <td>۴</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q85"></td>
+      <td>سٹیج ڈرامے، سٹیج آرٹ اور لائیو موسیقی بہت فرحت بخش چیزیں ہو سکتی ہیں۔</td>
+      <td>۵</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q86"></td>
+      <td>کمپیوٹر پر چارٹ، گراف اور ٹیبل بنانا زبردست کام ہے۔</td>
+      <td>۶</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q87"></td>
+      <td>گیمز کھیلنے اور پزل حل کرنے میں مجھے بہت مزہ آتا ہے۔</td>
+      <td>۷</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q88"></td>
+      <td>ملی نغموں اور ترانوں سے میرے اندر جوش و جذبہ پیدا ہوتا ہے۔</td>
+      <td>۸</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q89"></td>
+      <td>میرے لیے خیالی تصویروں کے ذریعے پرانی یادوں کو تازہ کرنا ممکن ہے۔</td>
+      <td>۹</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="q90"></td>
+      <td>مجھے نقشے، خاکے اور ڈیزائن سمجھنے میں زیادہ مشکل نہیں ہوتی۔</td>
+      <td>۱۰</td>
+    </tr>
+  </tbody>
+</table><br>
+<p style="font-size:16px; font-weight:bold;">
+  ✅ تمام سیکشنز کے کل سکورز ان کے خانوں میں لکھیں۔
+</p>
+<div style="overflow-x:auto;">
+  <table style="border-collapse: collapse; width:100%; min-width:750px; border:1px solid black; text-align:center;">
+    <!-- First Row -->
+    <tr style="border:1px solid black; background-color:#f2f2f2;">
+      <td style="border:1px solid black;">1</td>
+      <td style="border:1px solid black;">2</td>
+      <td style="border:1px solid black;">3</td>
+      <td style="border:1px solid black;">4</td>
+      <td style="border:1px solid black;">5</td>
+      <td style="border:1px solid black;">6</td>
+      <td style="border:1px solid black;">7</td>
+      <td style="border:1px solid black;">8</td>
+      <td style="border:1px solid black;">9</td>
+      <td style="border:1px solid black; font-weight:bold;">سیکشن</td>
+    </tr>
+
+    <!-- Second Row: Input Fields -->
+    <tr style="border:1px solid black;">
+      <td style="border:1px solid black;"><input type="text" name="q91" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q92" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q93" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q94" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q95" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q96" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q97" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q98" style="width:90%;"></td>
+      <td style="border:1px solid black;"><input type="text" name="q99" style="width:90%;"></td>
+      <td style="border:1px solid black; font-weight:bold;">سکورز</td>
+    </tr>
+
+    <!-- Third Row: English Section Names -->
+    <tr style="border:1px solid black; background-color:#b3d9ff; font-weight:bold;">
+      <td style="border:1px solid black;">Spatial</td>
+      <td style="border:1px solid black;">Intrapersonal</td>
+      <td style="border:1px solid black;">Linguistic</td>
+      <td style="border:1px solid black;">Kinesthetic</td>
+      <td style="border:1px solid black;">Interpersonal</td>
+      <td style="border:1px solid black;">Existential</td>
+      <td style="border:1px solid black;">Logical</td>
+      <td style="border:1px solid black;">Musical</td>
+      <td style="border:1px solid black;">Naturalistic</td>
+      <td style="border:1px solid black;">انٹیلی جنس</td>
+    </tr>
+  </table>
+</div>
+<p style="font-size:16px; font-weight:bold;">
+سب سے زیادہ سکورز والی تین انٹیلی جنس کے گرد دائرہ لگائیں۔
+اگلے صفحے پر ہر انٹیلی جنس کے متعلق تفصیلات درج ہیں آپ اپنی انٹیلی جنس سے متعلق خصوصیات اور ممکنہ کیریئرز کو تفصیل سے پڑھیں۔
+
+</p>
+<div style="width:100%; max-width:100%; padding:15px; background: linear-gradient(90deg, #6a11cb, #2575fc); color:white; text-align:center; border-radius:10px; font-family:'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif; font-size:18px; line-height:1.5; margin-bottom:20px;">
+  <h3 style="margin:0; font-size:20px;">
+    ذہانتوں کی اقسام اور ان کے حوالے سے موزوں کیریئر<br>
+   <br> انٹیلی جنس کی قسم اور اس سے منسلک افراد کی خصوصیات
+  </h3>
+</div>
+<div style="overflow-x:auto; margin-bottom:20px;">
+  <table style="border-collapse: collapse; width:100%; min-width:600px; border:1px solid black; text-align:center;">
+    <tr style="background: linear-gradient(90deg, #ff9966, #ff5e62); color:white; font-family:'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif; font-size:16px;">
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">انٹیلی جنس کی اقسام</td>
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">انٹیلی جنس منسلک افراد کی خصوصیات</td>
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">ممکنہ کیریئرز</td>
+    </tr>
+  </table>
+</div>
+<div style="overflow-x:auto; margin-bottom:20px;">
+  <table style="border-collapse: collapse; width:100%; min-width:900px; border:1px solid black; text-align:center; font-family:'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;">
+    <!-- Header Row -->
+    <tr style="background: linear-gradient(90deg, #ff9966, #ff5e62); color:white; font-size:16px;">
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">انٹیلی جنس کی اقسام</td>
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">انٹیلی جنس منسلک افراد کی خصوصیات</td>
+      <td style="border:1px solid black; padding:10px; font-weight:bold;">ممکنہ کیریئرز</td>
+    </tr>
+
+    <!-- Row Templates -->
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Naturalist</td>
+      <td style="border:1px solid black; padding:8px;">فطرت کو سمجھنا، درجه بندی، نباتات و حیوانات کی شناخت، ماہر فلکیات، ماہر حیوانات، زوالوجسٹ، ماہر موسمیات</td>
+      <td style="border:1px solid black; padding:8px;">باٹنسٹ، شیف، ماحولیاتی سائنسدان، لینڈسکیپ آرٹسٹ، نیوی گیٹر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Musical</td>
+      <td style="border:1px solid black; padding:8px;">موسیقی سنا، آوازوں کی شناخت، راگ و آهنگ</td>
+      <td style="border:1px solid black; padding:8px;">کمپوزر، میوزک میجر، ٹیکنیشن، سنگر، سازندہ</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Logical</td>
+      <td style="border:1px solid black; padding:8px;">ریاضی، استدلال، منطق، مسائل کا حل، تجربات کرنا</td>
+      <td style="border:1px solid black; padding:8px;">اکاؤنٹنٹ، اینالسٹ، قانون دان، کیمسٹ، فارماسسٹ، فزیشن، کمپیوٹر پروگرامر، انجینئر، موجد، ریسرچر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Existential</td>
+      <td style="border:1px solid black; padding:8px;">چیزوں کے وجود اور زندگی کے بارے میں سوچنا، تصورات، فلسفہ و خیالات</td>
+      <td style="border:1px solid black; padding:8px;">گہرے مذہبی رہنما، یوگا انسٹرکٹر، موٹیویشنل سپیکر، سائنسدان، فلاسفر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Interpersonal</td>
+      <td style="border:1px solid black; padding:8px;">لوگوں کو سمجھنا، انھیں منظم کرنا اور قیادت کرنا، بات چیت کرنا، تنازعات حل کرنا</td>
+      <td style="border:1px solid black; padding:8px;">ٹیچر، تھراپسٹ، ٹریول ایجنٹ، چائلڈ کئیر ورکر، کوچ، مینیجر، ثالث، نرس، فزیشن، پبلک ریلیشن آفیسر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Kinesthetic</td>
+      <td style="border:1px solid black; padding:8px;">تھلیٹکس، رقص، فنون، ہنر، اوزاروں کا استعمال</td>
+      <td style="border:1px solid black; padding:8px;">اتھلیٹ، ایکٹر، کارپینٹر، مکینک، فزیشن، آرکیٹیکٹ</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Linguistic</td>
+      <td style="border:1px solid black; padding:8px;">لکھنا، بولنا، پڑھنا، کہانیاں تانا، الفاظ اور ترانیں یاد رکھنا</td>
+      <td style="border:1px solid black; padding:8px;">رائٹر، ایڈیٹر، ترجمان، صحافی، پبلک ریلیشن آفیسر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Intrapersonal</td>
+      <td style="border:1px solid black; padding:8px;">اپنے آپ کو سمجھنا، اکیلے کام کرنا، سوچنا، اپنی خوبیوں اور خامیوں کے بارے میں جاننا</td>
+      <td style="border:1px solid black; padding:8px;">کنسلٹنٹ، کاؤنسلر، سائیکالوجسٹ، ریسرچر</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid black; padding:8px;">Spatial</td>
+      <td style="border:1px solid black; padding:8px;">نقشے، چارٹ، ڈرائنگ بنانا، معمے حل کرنا، چیزوں کے فوٹو گرافر، تصویروں پر غور کرنا</td>
+      <td style="border:1px solid black; padding:8px;">گرافک ڈیزائنر، آرکیٹیکٹ، آرٹسٹ، کارپینٹر، ڈینٹسٹ، ڈیزائنر، مکینک</td>
+    </tr>
+  </table>
+</div>
+<div style="text-align:center; margin-top:20px;">
+    <button type="submit" 
+            style="
+              background: linear-gradient(90deg, #ff9966, #ff5e62);
+              color: white;
+              border: none;
+              padding: 12px 30px;
+              font-size: 18px;
+              border-radius: 12px;
+              cursor: pointer;
+              transition: 0.3s;
+              font-weight:bold;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+      فارم جمع کریں
+    </button>
+  </div>
+</form>
+</div>
+<script>
+function handleSubmit(e) {
+  e.preventDefault(); // prevent default HTML form submission
+
+  const form = document.getElementById('SURVEY-B');
+  const formData = {};
+  new FormData(form).forEach((value, key) => {
+    formData[key] = value;
+  });
+
+  google.script.run.withSuccessHandler(function(response){
+    alert(response); // Show confirmation
+    form.reset(); // Clear form if needed
+  }).submitForm(formData);
+}
+</script>
 
   </body>
 </html>
+  
+
+
   
