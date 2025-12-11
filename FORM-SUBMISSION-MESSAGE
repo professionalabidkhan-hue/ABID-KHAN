@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 16px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Survey Form</h1>
+
+  <form onsubmit="showSuccess(); return false;">
+    <!-- Your survey questions here -->
+    <input type="text" name="q1" placeholder="Enter answer"><br><br>
+    <button type="submit" class="button">Submit</button>
+  </form>
+
+  <!-- Success message + Home button -->
+  <div id="success" class="success-message">
+    ✅ Your form has been sent successfully!
+    <br><br>
+    <a href="index.html" class="button">🏠 Go to Home Page</a>
+  </div>
+
+  <script>
+    function showSuccess() {
+      // Hide the form
+      document.querySelector("form").style.display = "none";
+      // Show success message + home button
+      document.getElementById("success").style.display = "block";
+    }
+  </script>
+</body>
+</html>
