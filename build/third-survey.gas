@@ -1,0 +1,41 @@
+function doPost(e) {
+  try {
+    if (!e || !e.postData || !e.postData.contents) {
+      return ContentService
+        .createTextOutput("ERROR: No POST data received");
+    }
+
+    // Parse POST JSON
+    const p = JSON.parse(e.postData.contents);
+
+    // Open spreadsheet by ID
+    const ss = SpreadsheetApp.openById("1mJi59pbsShyVI5DKubZDWH5KJVr37tRS4KUeiSSI-Jg");
+    const sheet = ss.getSheetByName("Third_survey");  // <- Change if needed
+
+    // Maintain EXACT order:
+    // Timestamp | name | email | phone | institute | section | text1 | text2 | text3 | text4
+
+    sheet.appendRow([
+      new Date(),
+      p.name || "",
+      p.email || "",
+      p.phone || "",
+      p.institute || "",
+      p.section || "",
+      p.text1 || "",
+      p.text2 || "",
+      p.text3 || "",
+      p.text4 || ""
+    ]);
+
+    return ContentService
+      .createTextOutput("SUCCESS")
+      .setMimeType(ContentService.MimeType.TEXT);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput("ERROR: " + err)
+      .setMimeType(ContentService.MimeType.TEXT);
+  }
+}
+

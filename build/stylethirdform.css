@@ -1,0 +1,343 @@
+        body {
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .header-title {
+            text-align: center;
+            color: #4a148c;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 20px 0;
+        }
+
+        .header-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-section {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-section h3 {
+            color: #4a148c;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-row input {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-row input:focus {
+            border-color: #8e24aa;
+            box-shadow: 0 0 8px rgba(142,36,170,0.3);
+            outline: none;
+        /* First Header Row with Background Color */
+        .first-header-row {
+            background-color: #4a148c;
+            padding: 20px;
+            border-bottom: 3px solid #8e24aa;
+        }
+ 
+        .first-header-row .row-content {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Second Header Row */
+        .second-header-row {
+            background-color: #f3e5f5;
+            padding: 15px;
+            border-bottom: 2px solid #ce93d8;
+            text-align: center;
+        }
+
+        .second-header-row .row-label {
+            color: #4a148c;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table th {
+            background-color: #ce93d8;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .col-sr {
+            width: 8%;
+            background-color: #f3e5f5;
+            font-weight: bold;
+        }
+
+        .col-question {
+            width: 50%;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .col-middle {
+            width: 10%;
+            background-color: #f9f9f9;
+        }
+
+        .col-middle2 {
+            width: 10%;
+            background-color: #f9f9f9;
+        }
+
+        .col-answer {
+            width: 22%;
+        }
+
+        .col-answer input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            font-size: 0.95rem;
+            text-align: center;
+            min-height: 40px;
+        }
+
+        .col-answer input:focus {
+            border-color: #8e24aa;
+            background-color: #fff8dc;
+            box-shadow: 0 0 8px rgba(142,36,170,0.3);
+            outline: none;
+        }
+        }
+
+        /* Column widths */
+        .sr-col {
+            width: 8%;
+            font-weight: bold;
+        }
+
+        .question-col {
+            width: 70%;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .answer-col {
+            width: 22%;
+        }
+
+        .answer-col input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            text-align: center;
+        }
+
+        .answer-col input:focus {
+            border-color: #8e24aa;
+            background-color: #fff8dc;
+            outline: none;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 30px 20px;
+            background: #f3e5f5;
+            border-top: 2px solid #ce93d8;
+        }
+
+        button {
+            background: #8e24aa;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+                font-weight: bold;
+            font-family: 'Noto Nastaliq Urdu', sans-serif;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6a1b9a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .success-message {
+            color: #4a148c;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+        .contact-row {
+            grid-template-columns: 1fr;
+        }
+    
+        .question-col {
+            width: 60%;
+        }
+
+        .col-sr {
+            width: 12%;
+            font-size: 0.9rem;
+        }
+
+        .col-question {
+            width: 40%;
+            font-size: 0.9rem;
+        }
+
+        .col-middle,
+        .col-middle2 {
+            width: 8%;
+        }
+
+        .col-answer {
+            width: 22%;
+        }
+
+        .col-answer input {
+            padding: 8px;
+            font-size: 0.85rem;
+        }
+        }
+
+    /* Styles for image sections and 10-column grid */
+    .image-sections {
+        padding: 20px;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin: 12px 6px;
+    }
+    .section-img {
+        flex: 1 1 calc(33.333% - 16px); /* three per row on wide screens */
+        max-width: calc(33.333% - 16px);
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+    }
+
+    .ten-column-grid {
+        padding: 18px 20px 30px 20px;
+    }
+    .ten-column-grid .grid-title {
+        font-weight: bold;
+        color: #4a148c;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .ten-column-grid .grid {
+        display: block;
+        width: 100%;
+    }
+    .ten-column-grid .grid-row {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    .ten-column-grid .grid-cell {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ten-column-grid .labels .cell-label{
+        background: #000; /* mimic black background in JPG */
+        color: #fff;
+        padding: 8px 6px;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    .ten-column-grid .inputs .grid-cell input{
+        width: 100%;
+        padding: 8px 6px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-family: 'Noto Nastaliq Urdu', sans-serif;
+    }
+    .ten-column-grid .grid-notes{
+        margin-top: 12px;
+        text-align: center;
+        color: #333;
+    }
+
+    @media (max-width: 900px) {
+        .ten-column-grid .grid-row {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .section-img { flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px); }
+    }
+
+    @media (max-width: 520px) {
+        .ten-column-grid .grid-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .section-img { flex: 1 1 100%; max-width: 100%; }
+    }
