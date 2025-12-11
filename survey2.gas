@@ -1,0 +1,60 @@
+// Google Apps Script for MARKAZ-E-TADBEER Survey Form
+// This script saves form responses to Google Sheets
+
+function doPost(e) {
+  try {
+    if (!e || !e.postData || !e.postData.contents) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ "status": "error", "message": "No data received" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Parse POST JSON
+    const data = JSON.parse(e.postData.contents);
+
+    // Open your Google Sheet - CHANGE THIS SHEET ID
+    const ss = SpreadsheetApp.openById("YOUR_SHEET_ID_HERE");
+    const sheet = ss.getSheetByName("MARKAZ-E-TADBEER") || ss.getSheets()[0];
+
+    // Add header row if it doesn't exist
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow([
+        "Timestamp",
+        "Name",
+        "Email",
+        "Phone",
+        "Institute",
+        "Q6",
+        "Q7",
+        "Q8",
+        "Q9",
+        "Q10",
+        "Q11"
+      ]);
+    }
+
+    // Append the response
+    sheet.appendRow([
+      data.timestamp || new Date(),
+      data.name || "",
+      data.email || "",
+      data.phone || "",
+      data.institute || "",
+      data.q6 || "",
+      data.q7 || "",
+      data.q8 || "",
+      data.q9 || "",
+      data.q10 || "",
+      data.q11 || ""
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ "status": "success", "message": "فارم محفوظ ہو گیا" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ "status": "error", "message": error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
