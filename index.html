@@ -1,32 +1,71 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Landing Page</title>
+  <meta charset="utf-8"/>
+  <title>ABID KHAN | Tadbeer Institute Surveys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .button {
-      display: inline-block;
-      padding: 12px 24px;
-      margin: 10px;
-      font-size: 16px;
-      color: white;
-      background-color: #007BFF;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-    .button:hover {
-      background-color: #0056b3;
+
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 14px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #4facfe;
+      color: #fff;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00c6ff;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 20px;
+      }
+      .btn {
+        font-size: 16px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Surveys</h1>
-
-  <!-- Buttons linking to your survey pages -->
-  <a href="survey-form1.html" class="button">Survey Form 1</a>
-  <a href="survey2.html" class="button">Survey Form 2</a>
-  <a href="Thrid-survey.html" class="button">Survey Form 3</a>
-
+  <div class="container">
+    <h1>Welcome to Tadbeer Institute Surveys</h1>
+    <button class="btn" onclick="window.location.href='survey-form1.html'">Survey Form A</button>
+    <button class="btn" onclick="window.location.href='survey2.html'">Survey Form B</button>
+    <button class="btn" onclick="window.location.href='Thrid-survey.html'">Survey Form C</button>
+  </div>
 </body>
 </html>
