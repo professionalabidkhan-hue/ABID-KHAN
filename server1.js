@@ -7,17 +7,11 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-/* =========================
-   Middleware
-========================= */
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
-/* =========================
-   Gmail Transport (SERVER ONLY)
-========================= */
+// Gmail Transport
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -26,26 +20,14 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-/* =========================
-   Form Submission Route
-========================= */
+// Form submission route
 app.post('/submit-form', async (req, res) => {
     try {
         const data = req.body;
 
-        /* -------- Format Email -------- */
-        let emailBody = `
-RIASEC FORM SUBMISSION
-
-Name: ${data.name}
-Phone: ${data.phone}
-Email: ${data.email}
-Institute: ${data.institute}
-
---------------------------------
-RIASEC ANSWERS
---------------------------------
-`;
+        // Format email content
+        let emailBody = `RIASEC Form Submission\n\n`;
+        emailBody += `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nInstitute: ${data.institute}\n\n`;
 
         Object.keys(data).forEach(key => {
             if (key.startsWith('q')) {
@@ -53,40 +35,22 @@ RIASEC ANSWERS
             }
         });
 
-        emailBody += `
---------------------------------
-Career Preferences
---------------------------------
-Career: ${data.career1 || ''}
-Field: ${data.field1 || ''}
-Code: ${data.code1 || ''}
-`;
+        emailBody += `\nCareer Preferences\nCareer: ${data.career1 || ''}\nField: ${data.field1 || ''}\nCode: ${data.code1 || ''}\n`;
 
-        /* -------- Send Email -------- */
         await transporter.sendMail({
             from: `"RIASEC Form" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
-            subject: 'New RIASEC Test Submission',
+            subject: 'New RIASEC Submission',
             text: emailBody
         });
 
-        res.json({
-            success: true,
-            message: 'Form submitted successfully'
-        });
-
-    } catch (error) {
-        console.error('Submission Error:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Submission failed'
-        });
+        res.json({ success: true, message: 'Form submitted successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Failed to submit form' });
     }
 });
 
-/* =========================
-   Start Server
-========================= */
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
