@@ -303,10 +303,7 @@ input[type="text"] {
 </form>
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
-
-<!-- Script for Form Submission & Navigation -->
 <script>
-// Form submit
 document.getElementById('riasecForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -319,6 +316,7 @@ document.getElementById('riasecForm').addEventListener('submit', function(e) {
         C: ['q6','q9','q15','q20_2','q25','q35','q38']
     };
 
+    // Calculate totals
     let totals = {};
     for (const code in codes) {
         totals[code] = 0;
@@ -328,7 +326,7 @@ document.getElementById('riasecForm').addEventListener('submit', function(e) {
         });
     }
 
-    // Extra bottom fields
+    // Add bottom career/field/code bonus
     ['career1','field1','code1'].forEach(f=>{
         let val = document.querySelector(`[name="${f}"]`).value.trim().toUpperCase();
         if (['R','I','A','S','E','C'].includes(val)) {
@@ -336,35 +334,31 @@ document.getElementById('riasecForm').addEventListener('submit', function(e) {
         }
     });
 
-    // Top 3
-    const top3 = Object.entries(totals).sort((a,b)=>b[1]-a[1]).slice(0,3).map(e=>e[0]);
+    // Compute top 3
+    const top3 = Object.entries(totals)
+        .sort((a,b)=>b[1]-a[1])
+        .slice(0,3)
+        .map(e=>e[0]);
 
-    // Alert
+    // Show alert
     let message = `آپ کے RIASEC scores:\n\n`;
     for (const code in totals) message += `${code}: ${totals[code]}\n`;
     message += `\nTop 3 Codes: ${top3.join(', ')}`;
     alert(message);
 
-    // Send to Google Sheet
-fetch("/submit-form", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(
-        Object.fromEntries(new FormData(this))
-    )
-})
-.then(res => res.json())
-.then(data => {
-    console.log("Server response:", data);
-})
-.catch(err => {
-    console.error("Submission error:", err);
+    // Send to Node.js backend for Gmail
+    fetch("https://YOUR_NODE_BACKEND_URL/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(this)))
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message))
+    .catch(err => console.error("Submission error:", err));
 });
-
-
 </script>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
