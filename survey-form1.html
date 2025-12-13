@@ -301,10 +301,21 @@ input[type="text"] {
         Submit Form
     </button>
 </div>
-
-
+<a href="index.html" class="home-button">🏠 Go to Main Page</a>
 
 <script>
+function goNext() {
+    const currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "survey-form1.html") {
+        window.location.href = "survey2.html";
+    } else if (currentPage === "survey2.html") {
+        window.location.href = "Thrid-survey.html";
+    } else if (currentPage === "Thrid-survey.html") {
+        alert("Thank you! You have completed all surveys.");
+        window.location.href = "index.html";
+    }
+}
+
 document.getElementById("riasecForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -313,11 +324,9 @@ document.getElementById("riasecForm").addEventListener("submit", async function 
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch("https://riasec-backend.onrender.com/submit-riasec", {
+        const response = await fetch("https://abid-khan-production.up.railway.app/submit-riasec", {  // <-- Replace with your exposed Railway URL
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
 
@@ -326,7 +335,7 @@ document.getElementById("riasecForm").addEventListener("submit", async function 
         if (result.success) {
             alert("Your form has been submitted successfully");
             form.reset();
-            goNext(); // move to next page if needed
+            goNext();
         } else {
             alert("Submission failed. Please try again.");
         }
@@ -336,6 +345,9 @@ document.getElementById("riasecForm").addEventListener("submit", async function 
     }
 });
 </script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
