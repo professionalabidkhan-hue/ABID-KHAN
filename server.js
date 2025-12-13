@@ -1,35 +1,56 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const { Pool } = require("pg");
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+
 const app = express();
+const PORT = 5000;
 
+// Middleware
+app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// PostgreSQL connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // Railway sets this automatically
-  ssl: { rejectUnauthorized: false }          // Required for Railway
+// Test route
+app.get('/', (req, res) => {
+    res.send('RIASEC Backend is running!');
 });
 
-// Create table (run once)
-pool.query(`
-CREATE TABLE IF NOT EXISTS riasec_submissions (
-    id SERIAL PRIMARY KEY,
-    data JSONB,
-    submitted_at TIMESTAMP DEFAULT NOW()
-);
-`);
+// Route to receive form submissions
+app.post('/submit', (req, res) => {
+    const formData = req.body;
 
-app.post("/submit-riasec", async (req, res) => {
-    const data = req.body;
-    try {
-        await pool.query("INSERT INTO riasec_submissions(data) VALUES($1)", [data]);
-        res.json({ success: true });
-    } catch (err) {
-        console.error(err);
-        res.json({ success: false });
-    }
+    // Path to store submissions
+    const filePath = path.join(__dirname, 'responses.json');
+
+    // Read existing data
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        let json = [];
+        if (!err && data.length) {
+            try {
+                json = JSON.parse(data);
+            } catch (parseErr) {
+                console.error('Error parsing JSON:', parseErr);
+            }
+        }
+
+        // Add new submission
+        json.push(formData);
+
+        // Save back to file
+        fs.writeFile(filePath, JSON.stringify(json, null, 2), (writeErr) => {
+            if (writeErr) {
+                console.error('Error saving submission:', writeErr);
+                return res.status(500).json({ message: 'Failed to save form data' });
+            }
+
+            res.json({ message: 'Form submitted successfully', data: formData });
+        });
+    });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
