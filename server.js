@@ -1,29 +1,35 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
-
+const { Pool } = require("pg");
 const app = express();
-app.use(cors());
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/submit-riasec", (req, res) => {
-    const formData = req.body;
+// PostgreSQL connection
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL, // Railway sets this automatically
+  ssl: { rejectUnauthorized: false }          // Required for Railway
+});
 
-    console.log("RIASEC Form Data Received:", formData);
+// Create table (run once)
+pool.query(`
+CREATE TABLE IF NOT EXISTS riasec_submissions (
+    id SERIAL PRIMARY KEY,
+    data JSONB,
+    submitted_at TIMESTAMP DEFAULT NOW()
+);
+`);
 
-    // Later you can save this to:
-    // - Database (MongoDB / MySQL)
-    // - Google Sheet via API
-    // - CSV / Excel file
-
-    res.json({
-        success: true,
-        message: "Your form has been submitted successfully"
-    });
+app.post("/submit-riasec", async (req, res) => {
+    const data = req.body;
+    try {
+        await pool.query("INSERT INTO riasec_submissions(data) VALUES($1)", [data]);
+        res.json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false });
+    }
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
