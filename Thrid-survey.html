@@ -293,18 +293,33 @@
     <div class="grid-head">
       <div class="cell" colspan="3" style="text-align:center;"><strong>آپ کی شخصیت کا کوڈ</strong></div>
     </div>
-<!-- Submit Button -->
 <div class="text-center my-4">
-<button type="button" onclick="showSuccess()" class="home-button">Submit Form</button>
-
+    <button type="button" onclick="validateForm()" class="home-button">Submit Form</button>
 </div>
 </form>
+
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
+
 <script>
+function validateForm() {
+    const form = document.querySelector("form");
+    const inputs = form.querySelectorAll("input, select, textarea");
+
+    for (let field of inputs) {
+        if (field.hasAttribute("required") && field.value.trim() === "") {
+            alert("Please fill all required fields before submitting.");
+            field.focus();
+            return; // Stop here — do NOT submit
+        }
+    }
+
+    // If everything is filled, run success function
+    showSuccess();
+}
+
 function showSuccess() {
     alert("Your form has been submitted successfully");
-    // Reset the form fields
     document.querySelector("form").reset();
 }
 </script>
@@ -313,6 +328,9 @@ function showSuccess() {
 
 
 
+</main>
+</body>
+</html>
 
 
 
