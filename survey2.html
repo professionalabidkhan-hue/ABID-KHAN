@@ -864,18 +864,30 @@ body {
 </div>
 
   </div>
-
+  <!-- Final MBTI Code -->
+  <button type="button" onclick="showSuccess()">Submit Form</button>
+<p id="successMessage" style="color: green; font-weight: bold;"></p>
 
 </form>
 </div>
-
-      <button type="button" onclick="showSuccess()" class="home-button>فارم جمع کریں</button>
-
 <script>
 function showSuccess() {
-    alert("Your form has been submitted successfully");
+    document.getElementById("successMessage").innerText = "Your form has been submitted successfully";
 }
 </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
 
 
   </body>
