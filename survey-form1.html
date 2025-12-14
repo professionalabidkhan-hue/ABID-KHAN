@@ -340,21 +340,30 @@ document.getElementById('riasecForm').addEventListener('submit', function(e) {
         .slice(0,3)
         .map(e=>e[0]);
 
-    // Show alert
+    // Show RIASEC scores popup
     let message = `آپ کے RIASEC scores:\n\n`;
     for (const code in totals) message += `${code}: ${totals[code]}\n`;
     message += `\nTop 3 Codes: ${top3.join(', ')}`;
     alert(message);
 
-    // Send to Node.js backend for Gmail
+    // ✅ Send to backend
     fetch("https://YOUR_NODE_BACKEND_URL/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(new FormData(this)))
     })
     .then(res => res.json())
-    .then(data => alert(data.message))
-    .catch(err => console.error("Submission error:", err));
+    .then(data => {
+        // ✅ Backend success popup
+        alert("Your survey form has been submitted successfully");
+
+        // ✅ Refresh the same page
+        location.reload();
+    })
+    .catch(err => {
+        console.error("Submission error:", err);
+        alert("There was an error submitting your form. Please try again.");
+    });
 });
 </script>
 
