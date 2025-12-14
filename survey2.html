@@ -882,22 +882,16 @@ body {
   </div>
 </form>
 </div>
+
+
+<!-- Home Button -->
+<a href="index.html" class="home-button">🏠 Go to Main Page</a>
 <script>
-function handleSubmit(e) {
-  e.preventDefault(); // prevent default HTML form submission
-
-  const form = document.getElementById('SURVEY-B');
-  const formData = {};
-  new FormData(form).forEach((value, key) => {
-    formData[key] = value;
-  });
-
-  google.script.run.withSuccessHandler(function(response){
-    alert(response); // Show confirmation
-    form.reset(); // Clear form if needed
-  }).submitForm(formData);
+function showSuccess() {
+    alert("Your form has been submitted successfully");
 }
 </script>
+
 
   </body>
 </html>
