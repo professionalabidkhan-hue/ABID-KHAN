@@ -281,32 +281,11 @@
 
 </form>
 <script>
-function sendFormData(e) {
-  e.preventDefault();
-
-  const url = "https://script.google.com/macros/s/AKfycbwXt3k_5piqocGOuT1t9TiS0KNXjVsbr_9sdKLzL2eFCn9jmhXO_wPGtgZofi7RpZfzFQ/exec";
-
-  const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    institute: document.getElementById("institute").value,
-    section: document.getElementById("section").value,
-    text1: document.getElementById("text1").value,
-    text2: document.getElementById("text2").value,
-    text3: document.getElementById("text3").value,
-    text4: document.getElementById("text4").value
-  };
-
-  fetch(url, {
-    method: "POST",
-    contentType: "application/json",
-    body: JSON.stringify(data)
-  })
-  .then(r => r.text())
-  .then(alert);
+function showSuccess() {
+    document.getElementById("successMessage").innerText = "Your form has been submitted successfully";
 }
 </script>
+
 
 
 </body>
