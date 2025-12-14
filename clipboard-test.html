@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clipboard Test</title>
+</head>
+<body>
+
+    <h2>Clipboard Read Test</h2>
+
+    <!-- ✅ Button user must click -->
+    <button id="readClipboardBtn">Read Clipboard</button>
+
+    <!-- ✅ Where clipboard text will appear -->
+    <p id="output"></p>
+
+    <script>
+        // ✅ Clipboard read only works after a user click
+        document.getElementById("readClipboardBtn").addEventListener("click", async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                document.getElementById("output").innerText = "Clipboard text: " + text;
+            } catch (err) {
+                document.getElementById("output").innerText = "Clipboard access denied";
+                console.error(err);
+            }
+        });
+    </script>
+
+</body>
+</html>
