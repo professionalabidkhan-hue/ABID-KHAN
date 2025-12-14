@@ -274,14 +274,20 @@
     <div class="grid-head">
       <div class="cell" colspan="3" style="text-align:center;"><strong>آپ کی شخصیت کا کوڈ</strong></div>
     </div>
-  <button type="button" onclick="showSuccess()">Submit Form</button>
-<p id="successMessage" style="color: green; font-weight: bold;"></p>
+<button type="button" onclick="showSuccess()">فارم جمع کریں</button>
+<p id="successMessage" style="color: green; font-weight: bold; margin-top: 10px;"></p>
+
 </form>
 <script>
 function showSuccess() {
-    document.getElementById("successMessage").innerText = "Your form has been submitted successfully";
+    document.getElementById("successMessage").innerText = "آپ کا فارم کامیابی سے جمع ہو گیا ہے";
+
+    // ✅ If your form has an ID, reset it
+    // Replace riasecForm with your actual form ID
+    document.getElementById("riasecForm").reset();
 }
 </script>
+
 
 
 
