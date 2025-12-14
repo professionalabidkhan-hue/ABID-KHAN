@@ -296,36 +296,7 @@ input[type="text"] {
         </table>
     </div>
 </div>
-<div class="text-center my-4">
-    <button type="button" onclick="validateForm()" class="home-button">Submit Form</button>
-</div>
-</form>
 
-<!-- Home Button -->
-<a href="index.html" class="home-button">🏠 Go to Main Page</a>
-
-<script>
-function validateForm() {
-    const form = document.querySelector("form");
-    const inputs = form.querySelectorAll("input, select, textarea");
-
-    for (let field of inputs) {
-        if (field.hasAttribute("required") && field.value.trim() === "") {
-            alert("Please fill all required fields before submitting.");
-            field.focus();
-            return; // Stop here — do NOT submit
-        }
-    }
-
-    // If everything is filled, run success function
-    showSuccess();
-}
-
-function showSuccess() {
-    alert("Your form has been submitted successfully");
-    document.querySelector("form").reset();
-}
-</script>
 
 
 
