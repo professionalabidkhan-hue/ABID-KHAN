@@ -1,14 +1,16 @@
-// Google Apps Script for handling RIASEC Survey Form submissions
-// This script connects to your Google Sheet and stores all form responses
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile('FORM1'); // Your HTML filename
+}
 
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.openById("1zpwp4GVYte6_ZVnZkHeXMOs8Vy8yVZfeD7v_S0jtSBQ")
-                      .getSheetByName("RIASEC FORM 1");
-    const data = JSON.parse(e.postData.contents);
+    const sheet = SpreadsheetApp
+      .openById("1_54DFsKR_xWuwAZhcUjAHaGAaPWr1_DGG-gP9Obxnog")
+      .getSheetByName("FORM1");
 
-    // Prepare row to insert (add timestamp automatically)
-    const row = [ 
+    const data = e.parameter;
+
+    const row = [
       new Date(),
       data.name || "",
       data.phone || "",
@@ -21,18 +23,18 @@ function doPost(e) {
       data.q25 || "", data.q26 || "", data.q27 || "", data.q28 || "", data.q29 || "", data.q30 || "",
       data.q31 || "", data.q31_2 || "", data.q32 || "", data.q33 || "", data.q35 || "", data.q36 || "",
       data.q37 || "", data.q38 || "", data.q39 || "", data.q40 || "", data.q41 || "", data.q42 || "",
-      data.career1 || "", data.field1 || "", data.code1 || "",
-      data.totals?.R || "", data.totals?.I || "", data.totals?.A || "", data.totals?.S || "", data.totals?.E || "", data.totals?.C || "",
-      (data.top3 || []).join(", ")
+      data.career1 || "", data.field1 || "", data.code1 || ""
     ];
 
     sheet.appendRow(row);
 
-    return ContentService.createTextOutput(JSON.stringify({ "status": "success" }))
-                         .setMimeType(ContentService.MimeType.JSON);
+    return ContentService
+      .createTextOutput(JSON.stringify({status: "success"}))
+      .setMimeType(ContentService.MimeType.JSON);
 
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ "status": "error", "message": error.message }))
-                         .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({status: "error", message: err.message}))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
