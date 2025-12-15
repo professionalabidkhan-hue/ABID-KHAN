@@ -1,5 +1,5 @@
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile('FORM1'); // Your HTML filename
+  return HtmlService.createHtmlOutputFromFile('survey-form1'); // Your HTML filename
 }
 
 function doPost(e) {
