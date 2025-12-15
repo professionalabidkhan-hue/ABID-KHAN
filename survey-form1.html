@@ -294,7 +294,9 @@ input[type="text"] {
     </div>
 </div>
 <div class="text-center my-4">
-    <button type="button" onclick="validateForm()" class="home-button">Submit Form</button>
+    <button type="button" onclick="validateForm()" class="home-button">
+        Submit Form
+    </button>
 </div>
 </form>
 
@@ -302,6 +304,8 @@ input[type="text"] {
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
 
 <script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyR6GKUpYBsnyoUn1_10gprA5RSmD1jj3j_lJUie5zF/dev";
+
 function validateForm() {
     const form = document.querySelector("form");
     const inputs = form.querySelectorAll("input, select, textarea");
@@ -310,19 +314,36 @@ function validateForm() {
         if (field.hasAttribute("required") && field.value.trim() === "") {
             alert("Please fill all required fields before submitting.");
             field.focus();
-            return; // Stop here — do NOT submit
+            return;
         }
     }
 
-    // If everything is filled, run success function
-    showSuccess();
+    submitForm(form);
 }
 
-function showSuccess() {
-    alert("Your form has been submitted successfully");
-    document.querySelector("form").reset();
+function submitForm(form) {
+    const formData = new FormData(form);
+
+    fetch(WEB_APP_URL, {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.status === "success") {
+            alert("Your form has been submitted successfully.");
+            form.reset();
+        } else {
+            alert("Submission failed: " + result.message);
+        }
+    })
+    .catch(error => {
+        alert("Error submitting form. Please try again.");
+        console.error(error);
+    });
 }
 </script>
+
 </body>
 </html>
 
