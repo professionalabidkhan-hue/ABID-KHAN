@@ -73,7 +73,7 @@ input[type="text"] {
     <h1>کیریئر کے رحمان کا ٹیسٹ (RIASEC)</h1>
     <p>یہ ثیسث ہاورڈ کارڈانر کے پیش کردہ ملٹی پل انٹیلی جنس کے تصور کی بنیاد پر تیار کیا گیا ہے</p>
 </div>
-<form id="survey-form1" method="POST" action="https://script.google.com/macros/s/AKfycbyscnpyH-R3lMrdAmt5Ii_ptmpaGKzBvPU9VCOO8Hc/dev">
+<form id="survey-form1">
 <!-- Realistic Section -->
 <div class="container">
   <!-- Contact Information Section -->
@@ -302,45 +302,18 @@ input[type="text"] {
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyR6GKUpYBsnyoUn1_10gprA5RSmD1jj3j_lJUie5zF/dev";
-
 document.getElementById("submitBtn").addEventListener("click", function(e) {
-    e.preventDefault(); // prevent default
+    e.preventDefault(); // stop default POST
 
     const form = document.getElementById("survey-form1");
     const inputs = form.querySelectorAll("input[required], select[required], textarea[required]");
 
-    // Validation
-    for (let field of inputs) {
-        if (field.value.trim() === "") {
-            alert("براہ کرم تمام ضروری فیلڈز پر کریں۔");
-            field.focus();
-            return;
-        }
-    }
-
-    const formData = new FormData(form);
-
-    fetch(WEB_APP_URL, {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(result => {
-        if(result.status === "success") {
-            alert("فارم کامیابی سے جمع ہو گیا!");
-            form.reset();
-        } else {
-            alert("فارم جمع نہیں ہوا: " + result.message);
-        }
-    })
-    .catch(err => {
-        alert("فارم جمع کرنے میں مسئلہ: " + err);
-        console.error(err);
-    });
+    // Validation and fetch here...
 });
 
 
+
+    
 </script>
 
 </body>
