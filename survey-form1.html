@@ -302,46 +302,44 @@ input[type="text"] {
 
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
-
 <script>
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyR6GKUpYBsnyoUn1_10gprA5RSmD1jj3j_lJUie5zF/dev";
 
-function validateForm() {
-    const form = document.querySelector("form");
-    const inputs = form.querySelectorAll("input, select, textarea");
+document.getElementById("submitBtn").addEventListener("click", function() {
+    const form = document.getElementById("SURVEY-FORM");
+    const inputs = form.querySelectorAll("input[required], select[required], textarea[required]");
 
+    // Validation
     for (let field of inputs) {
-        if (field.hasAttribute("required") && field.value.trim() === "") {
-            alert("Please fill all required fields before submitting.");
+        if (field.value.trim() === "") {
+            alert("براہ کرم تمام ضروری فیلڈز پر کریں۔");
             field.focus();
             return;
         }
     }
 
-    submitForm(form);
-}
-
-function submitForm(form) {
+    // Prepare form data
     const formData = new FormData(form);
 
+    // Submit via fetch
     fetch(WEB_APP_URL, {
         method: "POST",
         body: formData
     })
     .then(response => response.json())
     .then(result => {
-        if (result.status === "success") {
-            alert("Your form has been submitted successfully.");
+        if(result.status === "success") {
+            alert("فارم کامیابی سے جمع ہو گیا!");
             form.reset();
         } else {
-            alert("Submission failed: " + result.message);
+            alert("فارم جمع نہیں ہوا: " + result.message);
         }
     })
-    .catch(error => {
-        alert("Error submitting form. Please try again.");
-        console.error(error);
+    .catch(err => {
+        alert("فارم جمع کرنے میں مسئلہ: " + err);
+        console.error(err);
     });
-}
+});
 </script>
 
 </body>
