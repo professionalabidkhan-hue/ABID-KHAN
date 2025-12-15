@@ -303,9 +303,9 @@ input[type="text"] {
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyR6GKUpYBsnyoUn1_10gprA5RSmD1jj3j_lJUie5zF/dev";
 
-document.getElementById("submitBtn").addEventListener("click", function() {
+document.getElementById("submitBtn").addEventListener("click", function(e) {
+    e.preventDefault(); // Prevent default form submission
     const form = document.getElementById("survey-form1");
     const inputs = form.querySelectorAll("input[required], select[required], textarea[required]");
 
@@ -318,10 +318,8 @@ document.getElementById("submitBtn").addEventListener("click", function() {
         }
     }
 
-    // Prepare form data
     const formData = new FormData(form);
 
-    // Submit via fetch
     fetch(WEB_APP_URL, {
         method: "POST",
         body: formData
