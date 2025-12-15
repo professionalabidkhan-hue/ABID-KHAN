@@ -294,18 +294,19 @@ input[type="text"] {
     </div>
 </div>
 <div class="text-center my-4">
-    <button type="button" onclick="validateForm()" class="home-button">
-        Submit Form
-    </button>
+    <button type="button" id="submitBtn" class="home-button">Submit Form</button>
 </div>
+
 </form>
 
 <!-- Home Button -->
 <a href="index.html" class="home-button">🏠 Go to Main Page</a>
 <script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyR6GKUpYBsnyoUn1_10gprA5RSmD1jj3j_lJUie5zF/dev";
 
 document.getElementById("submitBtn").addEventListener("click", function(e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); // prevent default
+
     const form = document.getElementById("survey-form1");
     const inputs = form.querySelectorAll("input[required], select[required], textarea[required]");
 
@@ -338,6 +339,8 @@ document.getElementById("submitBtn").addEventListener("click", function(e) {
         console.error(err);
     });
 });
+
+
 </script>
 
 </body>
