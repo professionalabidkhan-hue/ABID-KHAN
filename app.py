@@ -1,60 +1,77 @@
-from flask import Flask, request, jsonify
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import streamlit as st
+import pandas as pd
 import os
+from datetime import datetime
 
-app = Flask(__name__)
+OFFICIAL_NAME = "ABID KHAN E LEARNING HUB"
+PIC_PATH = "frontend/assets/ABID KHAN.png"
 
-# Environment variables (configure on your server)
-GMAIL_USER = os.environ.get("GMAIL_USER")
-GMAIL_PASS = os.environ.get("GMAIL_PASS")
-TO_EMAIL = os.environ.get("TO_EMAIL", GMAIL_USER)
+st.set_page_config(page_title=OFFICIAL_NAME, layout="wide")
 
+# 1. KNOWLEDGE BASE
+IT_SYLLABUS_TEXT = """
+ABID KHAN E LEARNING HUB - IT COURSE OUTLINE
+-------------------------------------------
+1. Python Programming (Basics to Advanced)
+2. Web Development (HTML5, CSS3, JavaScript)
+3. AI Integration & Prompt Engineering
+4. GitHub Portfolio Management
+5. UI/UX Design with Figma
 
-@app.route("/api/survey", methods=["POST"])
-def handle_survey():
-    # Read all incoming form fields (works with your GitHub form)
-    data = request.form.to_dict()
+FEE: $50 per Month
+SCHEDULE: Mon-Fri, 6:00 PM - 8:00 PM PKT
+CONTACT: 1111/2222 WHATSAPP
+"""
 
-    if not data:
-        return jsonify({"success": False, "message": "No form data received"}), 400
+# 2. SIDEBAR
+with st.sidebar:
+    if os.path.exists(PIC_PATH):
+        st.image(PIC_PATH, caption="Abid Khan - Founder", use_container_width=True)
+    st.header(OFFICIAL_NAME)
+    
+    # NEW: DOWNLOAD SYLLABUS BUTTON
+    st.download_button(
+        label="📥 Download IT Syllabus (PDF/TXT)",
+        data=IT_SYLLABUS_TEXT,
+        file_name="Abid_Khan_IT_Syllabus.txt",
+        mime="text/plain",
+    )
+    
+    st.markdown("---")
+    st.subheader("📝 Course Registration")
+    with st.form("reg_form", clear_on_submit=True):
+        name = st.text_input("Full Name")
+        course = st.selectbox("Select Course", ["Online IT", "Web Design", "Revit (BIM)", "Online Quran"])
+        phone = st.text_input("WhatsApp Number")
+        if st.form_submit_button("Register Now"):
+            new_data = pd.DataFrame([[datetime.now().strftime("%Y-%m-%d %H:%M"), name, course, phone]], 
+                                    columns=["Date", "Name", "Course", "WhatsApp"])
+            new_data.to_csv("registrations.csv", mode='a', header=not os.path.exists("registrations.csv"), index=False)
+            st.success(f"✅ Registered! Check your downloads for the syllabus.")
 
-    # Optionally require some basic fields if you want
-    # For example: name, email
-    # name = data.get("name")
-    # email = data.get("email")
-    # if not name or not email:
-    #     return jsonify({"success": False, "message": "name and email required"}), 400
+# 3. CHAT INTERFACE
+st.title(f"🤖 {OFFICIAL_NAME} Assistant")
 
-    # Build email body text from all fields
-    lines = [f"{k}: {v}" for k, v in data.items()]
-    body = "New survey form submission:\n\n" + "\n".join(lines)
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-    try:
-        send_email("New survey response", body)
-    except Exception as e:
-        print("Error sending email:", e)
-        return jsonify({"success": False, "message": "Failed to send email"}), 500
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-    return jsonify({"success": True, "message": "Survey submitted successfully"}), 200
+if prompt := st.chat_input("Ask me anything about our courses..."):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
-
-def send_email(subject, body):
-    if not GMAIL_USER or not GMAIL_PASS:
-        raise RuntimeError("GMAIL_USER or GMAIL_PASS not set")
-
-    msg = MIMEMultipart()
-    msg["From"] = GMAIL_USER
-    msg["To"] = TO_EMAIL
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(GMAIL_USER, GMAIL_PASS)
-        server.send_message(msg)
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    with st.chat_message("assistant"):
+        q = prompt.lower()
+        if "it" in q or "syllabus" in q:
+            response = f"📚 **IT Course Details:**\n{IT_SYLLABUS_TEXT}"
+        elif "fee" in q:
+            response = "💰 **Fees:** IT Course: $50/mo | Quran: $30/mo."
+        else:
+            response = "I am here to help with IT and Quran course details. You can also download the syllabus from the sidebar!"
+        
+        st.markdown(response)
+        st.session_state.messages.append({"role": "assistant", "content": response})
